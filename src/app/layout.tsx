@@ -18,20 +18,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "СД-Сервис - Авто из Европы с доставкой по РФ",
+  title: "Sapfyr - Авто из Европы с доставкой по РФ",
   description: "Автомобили из Европы под ключ. Подбор, доставка, растаможка. Более 11 лет на рынке, 1000+ довольных клиентов. Экономия до 30%.",
-  keywords: "авто из европы, автомобили из европы, пригон авто, растаможка авто, СД-Сервис",
-  authors: [{ name: "СД-Сервис" }],
+  keywords: "авто из европы, автомобили из европы, пригон авто, растаможка авто, Sapfyr",
+  authors: [{ name: "Sapfyr" }],
   icons: {
     icon: "/logonew.png",
     shortcut: "/logonew.png",
     apple: "/logonew.png",
   },
   openGraph: {
-    title: "СД-Сервис - Авто из Европы с доставкой по РФ",
+    title: "Sapfyr - Авто из Европы с доставкой по РФ",
     description: "Автомобили из Европы под ключ. Подбор, доставка, растаможка. Более 11 лет на рынке, 1000+ довольных клиентов. Экономия до 30%.",
     url: "https://lts-prigon.ru",
-    siteName: "СД-Сервис - Авто из Европы",
+    siteName: "Sapfyr - Авто из Европы",
     type: "website",
     locale: "ru_RU",
     images: [
@@ -39,13 +39,13 @@ export const metadata: Metadata = {
         url: "https://lts-prigon.ru/lts_office_preview.jpg",
         width: 1200,
         height: 630,
-        alt: "СД-Сервис - Автомобили из Европы",
+        alt: "Sapfyr - Автомобили из Европы",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "СД-Сервис - Авто из Европы с доставкой по РФ",
+    title: "Sapfyr - Авто из Европы с доставкой по РФ",
     description: "Автомобили из Европы под ключ. Подбор, доставка, растаможка. Более 11 лет на рынке, 1000+ довольных клиентов.",
     images: ["https://lts-prigon.ru/lts_office_preview.jpg"],
   },
