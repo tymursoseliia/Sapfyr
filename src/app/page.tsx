@@ -698,7 +698,7 @@ function HowToGetCarSection() {
     }
   ];
 
-  const [activeReviews, setActiveReviews] = useState<any[]>(reviews);
+  const [activeReviews, setActiveReviews] = useState<{ image: string; name: string; text: string; rating: number; }[]>(reviews);
 
   useEffect(() => {
     async function fetchReviews() {
@@ -721,7 +721,6 @@ function HowToGetCarSection() {
       setCurrentReview((prev) => (prev + 1) % activeReviews.length);
     }, 5000);
     return () => clearInterval(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeReviews.length]);
 
   return (
@@ -1191,7 +1190,7 @@ function ClientReviewsSection() {
     }
   ];
 
-  const [activeReviews, setActiveReviews] = useState<any[]>(reviews);
+  const [activeReviews, setActiveReviews] = useState<{ name: string; text: string; carImage: string; platform: string; rating: number; }[]>(reviews);
 
   useEffect(() => {
     async function fetchReviews() {
