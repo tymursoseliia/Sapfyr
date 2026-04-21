@@ -516,7 +516,7 @@ export default function Home() {
                   Наш опыт работает на вас
                 </div>
                 <h3 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight tracking-tight text-glow">
-                  «СД-Сервис» — ВАШ НАДЕЖНЫЙ ПАРТНЁР
+                  «Sapfyr» — ВАШ НАДЕЖНЫЙ ПАРТНЁР
                 </h3>
                 <p className="text-white/70 mb-8 text-lg font-medium">
                   Мы экономим ваше время, бережем нервы и защищаем ваши интересы при покупке авто из Европы.
@@ -571,7 +571,7 @@ export default function Home() {
               {/* Background Image that shows through gradient */}
               <div className="absolute inset-0 lg:relative h-full w-full z-[-1] lg:z-0">
                 <img
-                  src="/lts_office.png"
+                  src="/Gemini_Generated_Image_gs1vi0gs1vi0gs1v.jpeg"
                   alt="Premium SUV"
                   className="w-full h-full object-cover lg:object-right object-center opacity-30 lg:opacity-100"
                 />
