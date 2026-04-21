@@ -478,7 +478,7 @@ export default function AdminPage() {
         <div className="max-w-screen-2xl mx-auto px-8 py-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <div className="flex flex-col items-start">
-              <div className="text-3xl font-bold text-[#0A2540] leading-none">СД-Сервис</div>
+              <div className="text-3xl font-bold text-[#0A2540] leading-none">Sapfyr</div>
               <div className="text-[9px] font-semibold text-[#0A2540] tracking-[0.15em] uppercase mt-0.5">
                 Авто из Европы
               </div>

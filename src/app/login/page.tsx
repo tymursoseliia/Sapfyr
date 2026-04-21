@@ -44,7 +44,7 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex flex-col items-center">
-            <div className="text-5xl font-bold text-[#0A2540] leading-none">СД-Сервис</div>
+            <div className="text-5xl font-bold text-[#0A2540] leading-none">Sapfyr</div>
             <div className="text-xs font-semibold text-[#0A2540] tracking-[0.15em] uppercase mt-1">
               Авто из Европы
             </div>
