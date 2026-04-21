@@ -32,11 +32,17 @@ export function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6 tracking-wide text-sm uppercase">Навигация</h4>
             <ul className="space-y-3">
-              {['Главная', 'О нас', 'Команда', 'Отзывы'].map((item) => (
-                <li key={item}>
-                  <Link href={item === 'Главная' ? '/' : `/${item === 'О нас' ? 'about' : item === 'Команда' ? 'team' : 'reviews'}`} className="text-white/60 hover:text-primary text-sm transition-colors flex items-center gap-2 group">
+              {[
+                { name: 'Главная', href: '/' },
+                { name: 'О нас', href: '/about' },
+                { name: 'Рассрочка', href: '/installment' },
+                { name: 'Команда', href: '/team' },
+                { name: 'Отзывы', href: '/reviews' }
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-white/60 hover:text-primary text-sm transition-colors flex items-center gap-2 group">
                     <span className="w-0 overflow-hidden group-hover:w-2 transition-all block h-[1px] bg-primary"></span>
-                    {item}
+                    {item.name}
                   </Link>
                 </li>
               ))}
