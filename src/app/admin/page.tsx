@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { supabase, type VideoReview, type Car } from '@/lib/supabase';
+import { supabase, type VideoReview, type Car, type PhotoReview } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -49,6 +49,18 @@ export default function AdminPage() {
   });
   const [addingVideo, setAddingVideo] = useState(false);
 
+  // Photo reviews state
+  const [photoReviews, setPhotoReviews] = useState<PhotoReview[]>([]);
+  const [photoReviewFormData, setPhotoReviewFormData] = useState({
+    name: '',
+    text: '',
+    rating: 5
+  });
+  const [photoReviewImage, setPhotoReviewImage] = useState<File | null>(null);
+  const [photoReviewImagePreview, setPhotoReviewImagePreview] = useState<string>('');
+  const [addingPhotoReview, setAddingPhotoReview] = useState(false);
+  const photoFileInputRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     checkAuth();
     if (activeTab === 'videos') {
@@ -56,6 +68,9 @@ export default function AdminPage() {
     }
     if (activeTab === 'manage') {
       fetchCars();
+    }
+    if (activeTab === 'photo-reviews') {
+      fetchPhotoReviews();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
@@ -137,6 +152,110 @@ export default function AdminPage() {
 
       alert('Видео-отзыв удален!');
       fetchVideoReviews();
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Неизвестная ошибка';
+      alert('Ошибка: ' + errorMessage);
+      console.error('Error:', error);
+    }
+  }
+
+  // Photo reviews functions
+  async function fetchPhotoReviews() {
+    try {
+      const { data, error } = await supabase
+        .from('photo_reviews')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      setPhotoReviews(data || []);
+    } catch (error) {
+      console.error('Error fetching photo reviews:', error);
+    }
+  }
+
+  const handlePhotoReviewImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (file.size > 5 * 1024 * 1024) {
+      alert('Файл слишком большой. Максимум 5MB.');
+      return;
+    }
+
+    setPhotoReviewImage(file);
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPhotoReviewImagePreview(reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  async function handlePhotoReviewSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!photoReviewImage) {
+      alert('Пожалуйста, выберите фото для отзыва');
+      return;
+    }
+
+    setAddingPhotoReview(true);
+
+    try {
+      const fileExt = photoReviewImage.name.split('.').pop();
+      const fileName = `${Math.random().toString(36).substring(2)}.${fileExt}`;
+      const filePath = `${fileName}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from('review-images')
+        .upload(filePath, photoReviewImage);
+
+      if (uploadError) throw new Error(`Ошибка загрузки фото: ${uploadError.message}`);
+
+      const { data: { publicUrl } } = supabase.storage
+        .from('review-images')
+        .getPublicUrl(filePath);
+
+      const { error: insertError } = await supabase
+        .from('photo_reviews')
+        .insert([{
+          name: photoReviewFormData.name,
+          text: photoReviewFormData.text,
+          rating: photoReviewFormData.rating,
+          image_url: publicUrl
+        }]);
+
+      if (insertError) throw insertError;
+
+      alert('Фото-отзыв успешно добавлен!');
+
+      setPhotoReviewFormData({ name: '', text: '', rating: 5 });
+      setPhotoReviewImage(null);
+      setPhotoReviewImagePreview('');
+      if (photoFileInputRef.current) photoFileInputRef.current.value = '';
+
+      fetchPhotoReviews();
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Неизвестная ошибка';
+      alert('Ошибка: ' + errorMessage);
+      console.error('Error:', error);
+    } finally {
+      setAddingPhotoReview(false);
+    }
+  }
+
+  async function handleDeletePhotoReview(id: string) {
+    if (!confirm('Вы уверены, что хотите удалить этот отзыв?')) return;
+
+    try {
+      const { error } = await supabase
+        .from('photo_reviews')
+        .delete()
+        .eq('id', id);
+
+      if (error) throw error;
+
+      alert('Фото-отзыв удален!');
+      fetchPhotoReviews();
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Неизвестная ошибка';
       alert('Ошибка: ' + errorMessage);
@@ -391,10 +510,11 @@ export default function AdminPage() {
         <h1 className="text-5xl font-bold text-[#0A2540] mb-8">Панель управления</h1>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
+          <TabsList className="grid w-full grid-cols-4 mb-8">
             <TabsTrigger value="cars">Добавить авто</TabsTrigger>
             <TabsTrigger value="manage">Управление авто</TabsTrigger>
             <TabsTrigger value="videos">Видео-отзывы</TabsTrigger>
+            <TabsTrigger value="photo-reviews">Фото-отзывы</TabsTrigger>
           </TabsList>
 
           {/* Cars Tab */}
@@ -824,6 +944,146 @@ export default function AdminPage() {
                       </div>
                       <Button
                         onClick={() => handleDeleteVideo(video.id)}
+                        variant="destructive"
+                        size="sm"
+                        className="ml-4"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </TabsContent>
+
+          {/* Photo Reviews Tab */}
+          <TabsContent value="photo-reviews">
+            <div className="bg-white rounded-lg p-8 shadow-sm mb-8">
+              <h2 className="text-2xl font-bold text-[#0A2540] mb-6">Добавить фото-отзыв</h2>
+
+              <form onSubmit={handlePhotoReviewSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Имя клиента *
+                  </label>
+                  <Input
+                    required
+                    value={photoReviewFormData.name}
+                    onChange={(e) => setPhotoReviewFormData({ ...photoReviewFormData, name: e.target.value })}
+                    placeholder="Александр И."
+                    className="h-12"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Текст отзыва *
+                  </label>
+                  <textarea
+                    required
+                    value={photoReviewFormData.text}
+                    onChange={(e) => setPhotoReviewFormData({ ...photoReviewFormData, text: e.target.value })}
+                    placeholder="Напишите текст отзыва..."
+                    rows={4}
+                    className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0A7ABF]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Оценка (1-5)
+                  </label>
+                  <Input
+                    type="number"
+                    min="1"
+                    max="5"
+                    required
+                    value={photoReviewFormData.rating}
+                    onChange={(e) => setPhotoReviewFormData({ ...photoReviewFormData, rating: parseInt(e.target.value) })}
+                    className="h-12 w-32"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Фотография *
+                  </label>
+                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                    <input
+                      ref={photoFileInputRef}
+                      type="file"
+                      accept="image/*"
+                      onChange={handlePhotoReviewImageSelect}
+                      className="hidden"
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => photoFileInputRef.current?.click()}
+                      className="mb-4"
+                    >
+                      <Upload className="w-4 h-4 mr-2" />
+                      Выбрать фото
+                    </Button>
+
+                    {photoReviewImagePreview && (
+                      <div className="relative inline-block mt-4 group">
+                        <img
+                          src={photoReviewImagePreview}
+                          alt="Preview"
+                          className="w-48 h-48 object-cover rounded-lg"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setPhotoReviewImage(null);
+                            setPhotoReviewImagePreview('');
+                            if (photoFileInputRef.current) photoFileInputRef.current.value = '';
+                          }}
+                          className="absolute top-2 right-2 bg-red-600 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={addingPhotoReview}
+                  className="w-full h-12 bg-[#0A7ABF] hover:bg-[#095A8F] text-lg"
+                >
+                  {addingPhotoReview ? 'Добавление...' : 'Добавить фото-отзыв'}
+                </Button>
+              </form>
+            </div>
+
+            <div className="bg-white rounded-lg p-8 shadow-sm">
+              <h2 className="text-2xl font-bold text-[#0A2540] mb-6">Существующие фото-отзывы</h2>
+
+              {photoReviews.length === 0 ? (
+                <div className="text-center py-8 text-gray-500">
+                  Пока нет добавленных фото-отзывов
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {photoReviews.map((review) => (
+                    <div key={review.id} className="flex gap-4 p-4 border border-gray-200 rounded-lg items-center">
+                      <div className="w-24 h-24 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden">
+                        <img
+                          src={review.image_url}
+                          alt={review.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-[#0A2540] mb-1">{review.name} (Оценка: {review.rating})</h3>
+                        <p className="text-sm text-gray-600 line-clamp-2">{review.text}</p>
+                      </div>
+                      <Button
+                        onClick={() => handleDeletePhotoReview(review.id)}
                         variant="destructive"
                         size="sm"
                         className="ml-4"

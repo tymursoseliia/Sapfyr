@@ -698,13 +698,31 @@ function HowToGetCarSection() {
     }
   ];
 
+  const [activeReviews, setActiveReviews] = useState<any[]>(reviews);
+
   useEffect(() => {
+    async function fetchReviews() {
+      const { data } = await supabase.from('photo_reviews').select('*').order('created_at', { ascending: false });
+      if (data && data.length > 0) {
+        setActiveReviews(data.map(r => ({
+          image: r.image_url,
+          name: r.name,
+          text: r.text,
+          rating: r.rating
+        })));
+      }
+    }
+    fetchReviews();
+  }, []);
+
+  useEffect(() => {
+    if (activeReviews.length === 0) return;
     const timer = setInterval(() => {
-      setCurrentReview((prev) => (prev + 1) % reviews.length);
+      setCurrentReview((prev) => (prev + 1) % activeReviews.length);
     }, 5000);
     return () => clearInterval(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [activeReviews.length]);
 
   return (
     <section className="w-full py-24 px-6 relative overflow-hidden bg-card">
@@ -727,7 +745,7 @@ function HowToGetCarSection() {
               <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-blue-500/30 rounded-full blur-[50px] z-20 pointer-events-none opacity-50" />
 
               <div className="relative h-full w-full">
-                {reviews.map((review, index) => (
+                {activeReviews.map((review, index) => (
                   <div
                     key={index}
                     className={`absolute inset-0 transition-all duration-700 ease-in-out ${
@@ -774,13 +792,13 @@ function HowToGetCarSection() {
               {/* Navigation Controls */}
               <div className="absolute top-1/2 -translate-y-1/2 inset-x-4 flex justify-between z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button
-                  onClick={() => setCurrentReview((prev) => (prev - 1 + reviews.length) % reviews.length)}
+                  onClick={() => setCurrentReview((prev) => (prev - 1 + activeReviews.length) % activeReviews.length)}
                   className="w-12 h-12 bg-background/50 hover:bg-primary/80 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/10 transition-all hover:scale-110 shadow-lg"
                 >
                   <ChevronRight className="w-6 h-6 rotate-180" />
                 </button>
                 <button
-                  onClick={() => setCurrentReview((prev) => (prev + 1) % reviews.length)}
+                  onClick={() => setCurrentReview((prev) => (prev + 1) % activeReviews.length)}
                   className="w-12 h-12 bg-background/50 hover:bg-primary/80 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/10 transition-all hover:scale-110 shadow-lg"
                 >
                   <ChevronRight className="w-6 h-6" />
@@ -789,7 +807,7 @@ function HowToGetCarSection() {
 
               {/* Progress Dots */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30 bg-background/50 backdrop-blur-md px-3 py-2 rounded-full border border-white/10">
-                {reviews.map((_, index) => (
+                {activeReviews.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentReview(index)}
@@ -1173,6 +1191,24 @@ function ClientReviewsSection() {
     }
   ];
 
+  const [activeReviews, setActiveReviews] = useState<any[]>(reviews);
+
+  useEffect(() => {
+    async function fetchReviews() {
+      const { data } = await supabase.from('photo_reviews').select('*').order('created_at', { ascending: false });
+      if (data && data.length > 0) {
+        setActiveReviews(data.map(r => ({
+          name: r.name,
+          text: r.text,
+          carImage: r.image_url,
+          platform: "yandex",
+          rating: r.rating
+        })));
+      }
+    }
+    fetchReviews();
+  }, []);
+
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const scrollAmount = 400;
@@ -1217,7 +1253,7 @@ function ClientReviewsSection() {
           className="flex gap-6 overflow-x-auto scrollbar-hide pb-8 -mx-8 px-8 snap-x snap-mandatory"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {reviews.map((review, index) => (
+          {activeReviews.map((review, index) => (
             <div key={index} className="flex-shrink-0 w-80 md:w-96 glass-panel border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 snap-center group">
               {/* Header with name */}
               <div className="p-6 md:p-8 border-b border-white/5">

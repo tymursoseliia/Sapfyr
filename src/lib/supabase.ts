@@ -31,3 +31,12 @@ export type VideoReview = {
   platform: 'rutube' | 'youtube';
   thumbnail_url?: string;
 };
+
+export type PhotoReview = {
+  id: string;
+  created_at: string;
+  name: string;
+  text: string;
+  rating: number;
+  image_url: string;
+};
