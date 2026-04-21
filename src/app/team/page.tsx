@@ -12,7 +12,7 @@ export default function TeamPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative bg-background overflow-hidden border-b border-white/5">
+      <section className="relative bg-background overflow-hidden border-b border-gray-100">
         {/* Abstract Background Elements */}
         <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
           <div className="absolute w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -top-1/2 -right-1/4 animate-pulse opacity-50" />
@@ -25,8 +25,8 @@ export default function TeamPage() {
 
         <div className="relative z-10 px-8 py-16 pt-32">
           <div className="max-w-screen-2xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">КОМАНДА</h1>
-            <p className="text-white/80 max-w-2xl mx-auto text-lg">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">КОМАНДА</h1>
+            <p className="text-gray-700 max-w-2xl mx-auto text-lg">
               Профессионалы, которые делают покупку авто простой и безопасной.
             </p>
           </div>
@@ -34,14 +34,14 @@ export default function TeamPage() {
       </section>
 
       {/* Team Members Grid */}
-      <section className="py-20 px-8 bg-card border-y border-white/5 relative flex-grow">
+      <section className="py-20 px-8 bg-card border-y border-gray-100 relative flex-grow">
         <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
         <div className="max-w-screen-2xl mx-auto relative z-10">
           {teamMembers.length > 0 ? (
             <>
               {/* First member - centered */}
               <div className="flex justify-center mb-16">
-                <div className="flex flex-col items-center glass-panel border-white/10 rounded-3xl p-8 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] group w-full max-w-sm">
+                <div className="flex flex-col items-center glass-panel border-gray-200 rounded-3xl p-8 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] group w-full max-w-sm">
                   <div className="w-64 h-64 rounded-full overflow-hidden mb-6 border-4 border-primary/20 group-hover:border-primary transition-colors duration-500 shadow-xl relative">
                     <div className="absolute inset-0 rounded-full border border-primary/50 scale-105 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-700" />
                     <img
@@ -50,7 +50,7 @@ export default function TeamPage() {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                   </div>
-                  <h3 className="text-2xl font-bold text-white text-center">
+                  <h3 className="text-2xl font-bold text-gray-900 text-center">
                     {teamMembers[0].name}
                   </h3>
                   <p className="text-primary mt-2 uppercase tracking-widest text-sm font-semibold">Руководитель</p>
@@ -60,8 +60,8 @@ export default function TeamPage() {
               {/* Rest of the team - 4 columns grid */}
               <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 {teamMembers.slice(1).map((member, index) => (
-                  <div key={index} className="flex flex-col items-center glass-panel border-white/10 rounded-3xl p-6 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] group">
-                    <div className="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-white/5 group-hover:border-primary/50 transition-colors duration-500 relative">
+                  <div key={index} className="flex flex-col items-center glass-panel border-gray-200 rounded-3xl p-6 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] group">
+                    <div className="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-gray-100 group-hover:border-primary/50 transition-colors duration-500 relative">
                       <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       </div>
                       <img
@@ -70,7 +70,7 @@ export default function TeamPage() {
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                     </div>
-                    <h3 className="text-lg font-bold text-white text-center">
+                    <h3 className="text-lg font-bold text-gray-900 text-center">
                       {member.name}
                     </h3>
                   </div>
@@ -79,7 +79,7 @@ export default function TeamPage() {
             </>
           ) : (
             <div className="flex items-center justify-center py-20">
-              <h2 className="text-2xl font-medium text-white/50 tracking-wide">
+              <h2 className="text-2xl font-medium text-gray-500 tracking-wide">
                 Состав команды обновляется...
               </h2>
             </div>

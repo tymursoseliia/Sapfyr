@@ -94,7 +94,7 @@ export default function LoginPage() {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full h-12 bg-[#0A7ABF] hover:bg-[#095A8F] text-white text-base font-medium"
+              className="w-full h-12 bg-[#0A7ABF] hover:bg-[#095A8F] text-gray-900 text-base font-medium"
             >
               {loading ? 'Вход...' : 'Войти'}
             </Button>

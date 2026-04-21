@@ -16,11 +16,11 @@ export function Header() {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full flex justify-center ${scrolled ? 'bg-background/80 backdrop-blur-lg border-b border-white/10 py-3 shadow-2xl' : 'bg-transparent py-5'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full flex justify-center ${scrolled ? 'bg-background/80 backdrop-blur-lg border-b border-gray-200 py-3 shadow-sm' : 'bg-transparent py-5'}`}>
       <div className="w-full max-w-screen-2xl px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <img src="/logonew.png" alt="СД-Сервис" className="h-20 w-auto object-contain rounded-md shadow-sm group-hover:shadow-md transition-shadow" />
+          <img src="/logonew.png" alt="Sapfyr" className="h-20 w-auto object-contain rounded-md shadow-sm group-hover:shadow-md transition-shadow" />
         </Link>
 
         {/* Navigation */}
@@ -35,7 +35,7 @@ export function Header() {
             <Link 
               key={item.name} 
               href={item.href}
-              className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group py-2"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors relative group py-2"
             >
               {item.name}
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gradient-to-r from-primary to-blue-400 scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-300 ease-out" />
@@ -49,19 +49,19 @@ export function Header() {
             href="https://t.me/LTSPRigon"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary/50 group"
+            className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 border border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary/50 group"
             title="Наш Telegram канал"
           >
-            <Send className="w-4 h-4 text-white/70 group-hover:text-[#0088cc] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
+            <Send className="w-4 h-4 text-gray-600 group-hover:text-[#0088cc] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
           </a>
           <a
             href="https://max.ru/u/f9LHodD0cOLd_wpVLKdoX-6cYVQPnzVsKXfd4Yyv1T741m3KQNI63EzYpvY"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary/50 group"
+            className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 border border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary/50 group"
             title="Наш MAX мессенджер"
           >
-            <MessageSquare className="w-4 h-4 text-white/70 group-hover:text-[#0088cc] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
+            <MessageSquare className="w-4 h-4 text-gray-600 group-hover:text-[#0088cc] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
           </a>
           <a
             href="tel:+79383591091"

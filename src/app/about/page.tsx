@@ -75,7 +75,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-background/50" />
         <div className="relative z-10 px-8 py-8 text-center">
           <div className="max-w-screen-2xl mx-auto">
-            <h1 className="text-5xl font-bold text-white mb-4">О <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">НАС</span></h1>
+            <h1 className="text-5xl font-bold text-gray-900 mb-4">О <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">НАС</span></h1>
             <div className="h-1 w-20 bg-gradient-to-r from-primary to-blue-400 rounded-full mx-auto" />
           </div>
         </div>
@@ -86,9 +86,9 @@ export default function AboutPage() {
         <div className="max-w-screen-2xl mx-auto px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Left side - Text */}
-            <div className="text-white space-y-4">
+            <div className="text-gray-900 space-y-4">
               <p className="text-base leading-relaxed">
-                <strong>«СД-Сервис»</strong> — команда специалистов с опытом в подборе и импорте автомобилей более 11 лет.
+                <strong>«Sapfyr»</strong> — команда специалистов с опытом в подборе и импорте автомобилей более 11 лет.
               </p>
               <p className="text-base leading-relaxed">
                 Мы работаем напрямую с европейскими дилерами, аукционами и проверенными продавцами, чтобы вы получали честный, прозрачный и выгодный вариант без переплат перекупам.
@@ -99,27 +99,27 @@ export default function AboutPage() {
             </div>
 
             {/* Right side - Video */}
-            <div className="relative aspect-video rounded-lg overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center">
-              <div className="text-white/50 text-base font-medium tracking-wide">Видео скоро появится</div>
+            <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-100 border border-gray-200 flex items-center justify-center">
+              <div className="text-gray-500 text-base font-medium tracking-wide">Видео скоро появится</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* What We Do Section */}
-      <section className="py-16 px-8 bg-card border-y border-white/5">
+      <section className="py-16 px-8 bg-card border-y border-gray-100">
         <div className="max-w-screen-2xl mx-auto">
-          <div className="glass-panel border-white/10 rounded-2xl p-8 lg:p-12 shadow-2xl relative overflow-hidden">
+          <div className="glass-panel border-gray-200 rounded-2xl p-8 lg:p-12 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px]" />
             <div className="relative z-10">
-              <h2 className="text-3xl font-bold text-white mb-8">ЧЕМ МЫ ЗАНИМАЕМСЯ</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">ЧЕМ МЫ ЗАНИМАЕМСЯ</h2>
 
               <div className="space-y-4">
-                <p className="text-base text-white/80">
-                  Мы сопровождаем покупку автомобиля из-за границы <strong className="text-white">от идеи до постановки на учёт в РФ:</strong>
+                <p className="text-base text-gray-700">
+                  Мы сопровождаем покупку автомобиля из-за границы <strong className="text-gray-900">от идеи до постановки на учёт в РФ:</strong>
                 </p>
 
-                <ul className="space-y-3 text-white/70 text-sm pl-4">
+                <ul className="space-y-3 text-gray-600 text-sm pl-4">
                   <li className="flex items-start gap-2">
                     <span className="text-[#0A7ABF] mt-0.5">•</span>
                     <span>Подбор авто под ваш бюджет и запросы</span>
@@ -150,7 +150,7 @@ export default function AboutPage() {
                   </li>
                 </ul>
 
-              <p className="text-base text-white/80 pt-6 border-t border-white/10 mt-6 font-medium">
+              <p className="text-base text-gray-700 pt-6 border-t border-gray-200 mt-6 font-medium">
                 Вы получаете готовый к эксплуатации автомобиль, который уже прошел все юридические и технические этапы.
               </p>
               </div>
@@ -164,14 +164,14 @@ export default function AboutPage() {
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Principle Card */}
-            <div className="glass-panel border-white/10 rounded-2xl p-8 shadow-xl hover:border-primary/30 transition-colors">
-              <h2 className="text-2xl font-bold text-white mb-6">
+            <div className="glass-panel border-gray-200 rounded-2xl p-8 shadow-xl hover:border-primary/30 transition-colors">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 НАШ ПРИНЦИП — ЧЕСТНОСТЬ И ПРОЗРАЧНОСТЬ
               </h2>
 
-              <p className="text-white/70 mb-6 text-sm">Мы открыто показываем:</p>
+              <p className="text-gray-600 mb-6 text-sm">Мы открыто показываем:</p>
 
-              <ul className="space-y-3 text-white/70 text-sm mb-6">
+              <ul className="space-y-3 text-gray-600 text-sm mb-6">
                 <li className="flex items-start gap-2">
                   <span className="text-[#0A7ABF] mt-0.5">•</span>
                   <span>из каких стран и по каким каналам берём автомобили;</span>
@@ -186,42 +186,42 @@ export default function AboutPage() {
                 </li>
               </ul>
 
-              <p className="text-white/80 font-medium bg-white/5 p-4 rounded-xl border border-white/10">
+              <p className="text-gray-700 font-medium bg-gray-100 p-4 rounded-xl border border-gray-200">
                 Никаких скрытых комиссий и «сюрпризов» по цене. Все условия закрепляем в договоре.
               </p>
             </div>
 
             {/* Why Choose Us Card */}
-            <div className="glass-panel border-white/10 rounded-2xl p-8 shadow-xl hover:border-primary/30 transition-colors">
-              <h2 className="text-2xl font-bold text-white mb-8">
-                ПОЧЕМУ «СД-Сервис»
+            <div className="glass-panel border-gray-200 rounded-2xl p-8 shadow-xl hover:border-primary/30 transition-colors">
+              <h2 className="text-2xl font-bold text-gray-900 mb-8">
+                ПОЧЕМУ «Sapfyr»
               </h2>
 
               <div className="space-y-6">
-                <div className="pb-4 border-b border-white/10">
+                <div className="pb-4 border-b border-gray-200">
                   <h3 className="font-bold text-primary mb-1 text-sm uppercase tracking-wider">Экономия до 20–30%</h3>
-                  <p className="text-white/60 text-sm">
+                  <p className="text-gray-500 text-sm">
                     по сравнению с покупкой аналогичного авто на внутреннем рынке
                   </p>
                 </div>
 
-                <div className="pb-4 border-b border-white/10">
+                <div className="pb-4 border-b border-gray-200">
                   <h3 className="font-bold text-primary mb-1 text-sm uppercase tracking-wider">Честная диагностика и реальные данные</h3>
-                  <p className="text-white/60 text-sm">
+                  <p className="text-gray-500 text-sm">
                     по пробегу и состоянию
                   </p>
                 </div>
 
-                <div className="pb-4 border-b border-white/10">
+                <div className="pb-4 border-b border-gray-200">
                   <h3 className="font-bold text-primary mb-1 text-sm uppercase tracking-wider">Полное сопровождение</h3>
-                  <p className="text-white/60 text-sm">
+                  <p className="text-gray-500 text-sm">
                     — вы не занимаетесь бюрократией и логистикой
                   </p>
                 </div>
 
                 <div>
                   <h3 className="font-bold text-primary mb-1 text-sm uppercase tracking-wider">Ответственность за результат</h3>
-                  <p className="text-white/60 text-sm">
+                  <p className="text-gray-500 text-sm">
                     — мы заинтересованы, чтобы вы остались довольны и рекомендовали нас дальше
                   </p>
                 </div>
@@ -232,22 +232,22 @@ export default function AboutPage() {
       </section>
 
       {/* Why >1000 People Section */}
-      <section className="py-20 px-8 bg-card border-y border-white/5 relative">
+      <section className="py-20 px-8 bg-card border-y border-gray-100 relative">
         <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
         <div className="max-w-screen-2xl mx-auto relative z-10">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-10 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-10 text-center">
             ПОЧЕМУ &gt;1000 ЧЕЛОВЕК РЕШИЛИ<br />
             РАБОТАТЬ С НАМИ?
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-4">
             {/* Card 1 - Triple Check */}
-            <div className="glass-panel border-white/10 rounded-2xl p-6 relative overflow-hidden group hover:border-primary/40 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-4">
+            <div className="glass-panel border-gray-200 rounded-2xl p-6 relative overflow-hidden group hover:border-primary/40 transition-colors">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
                 АВТО ПРОХОДИТ<br />
                 ТРОЙНУЮ ПРОВЕРКУ
               </h3>
-              <ul className="space-y-2 text-xs text-white/70 mb-4">
+              <ul className="space-y-2 text-xs text-gray-600 mb-4">
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 font-bold">✓</span>
                   <span>Юридическая чистота (запреты, залоги, ДТП)</span>
@@ -265,7 +265,7 @@ export default function AboutPage() {
                   <span>Комплексная диагностика у независимого эксперта</span>
                 </li>
               </ul>
-              <p className="text-xs text-primary/80 italic mt-auto pt-4 border-t border-white/10">
+              <p className="text-xs text-primary/80 italic mt-auto pt-4 border-t border-gray-200">
                 Риски исключены — вы получаете только прозрачный, безопасный автомобиль.
               </p>
               <div className="absolute -bottom-10 -right-10 w-40 h-40 opacity-5 group-hover:opacity-10 transition-opacity">
@@ -277,70 +277,70 @@ export default function AboutPage() {
             </div>
 
             {/* Card 2 - Fixed Price */}
-            <div className="glass-panel border-white/10 rounded-2xl p-6 flex flex-col hover:border-primary/40 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-4">
+            <div className="glass-panel border-gray-200 rounded-2xl p-6 flex flex-col hover:border-primary/40 transition-colors">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
                 СТОИМОСТЬ «ПОД КЛЮЧ»<br />
                 ФИКСИРУЕТСЯ В ДОГОВОРЕ
               </h3>
-              <p className="text-xs text-white/70 mb-4">
-                Вы сразу получаете полную смету перед подписанием. Никаких доплат в пути — <strong className="text-white">итоговая цена авто «под ключ» строго закреплена в договоре.</strong>
+              <p className="text-xs text-gray-600 mb-4">
+                Вы сразу получаете полную смету перед подписанием. Никаких доплат в пути — <strong className="text-gray-900">итоговая цена авто «под ключ» строго закреплена в договоре.</strong>
               </p>
-              <p className="text-xs text-primary/80 italic mt-auto pt-4 border-t border-white/10">
+              <p className="text-xs text-primary/80 italic mt-auto pt-4 border-t border-gray-200">
                 Никаких сюрпризов на этапе растаможки или доставки.
               </p>
             </div>
 
             {/* Card 3 - Turnkey */}
-            <div className="glass-panel border-white/10 rounded-2xl p-6 flex flex-col hover:border-primary/40 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-4">
+            <div className="glass-panel border-gray-200 rounded-2xl p-6 flex flex-col hover:border-primary/40 transition-colors">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
                 ОФОРМЛЕНИЕ<br />
                 ПОД КЛЮЧ
               </h3>
-              <p className="text-xs text-white/70 mb-4">
-                <strong className="text-white">Таможенное оформление,</strong> постановка на учёт, оформление на физическое или юридическое лицо.
+              <p className="text-xs text-gray-600 mb-4">
+                <strong className="text-gray-900">Таможенное оформление,</strong> постановка на учёт, оформление на физическое или юридическое лицо.
               </p>
-              <p className="text-xs text-primary/80 italic mt-auto pt-4 border-t border-white/10">
+              <p className="text-xs text-primary/80 italic mt-auto pt-4 border-t border-gray-200">
                 Огромный опыт работ, позволяет нам, сделать всё качественно и быстро.
               </p>
             </div>
 
             {/* Card 4 - 2 Weeks Delivery */}
-            <div className="glass-panel border-white/10 rounded-2xl p-6 flex flex-col hover:border-primary/40 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-4">
+            <div className="glass-panel border-gray-200 rounded-2xl p-6 flex flex-col hover:border-primary/40 transition-colors">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
                 ДОСТАВКА АВТО<br />
                 ЗА 2 НЕДЕЛИ
               </h3>
-              <p className="text-xs text-white/70 mb-4">
-                Это <strong className="text-white">быстрее рынка на 25%,</strong> благодаря налаженным цепочкам и экспресс-таможне.
+              <p className="text-xs text-gray-600 mb-4">
+                Это <strong className="text-gray-900">быстрее рынка на 25%,</strong> благодаря налаженным цепочкам и экспресс-таможне.
               </p>
-              <p className="text-xs text-primary/80 italic mt-auto pt-4 border-t border-white/10">
+              <p className="text-xs text-primary/80 italic mt-auto pt-4 border-t border-gray-200">
                 Мы не обещаем лишнего, мы строго соблюдаем график.
               </p>
             </div>
 
             {/* Card 5 - 24/7 Support */}
-            <div className="glass-panel border-white/10 rounded-2xl p-6 flex flex-col hover:border-primary/40 transition-colors">
-              <h3 className="text-lg font-bold text-white mb-4">
+            <div className="glass-panel border-gray-200 rounded-2xl p-6 flex flex-col hover:border-primary/40 transition-colors">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
                 24/7 ПОДДЕРЖКА<br />
                 ЛИЧНОГО МЕНЕДЖЕРА
               </h3>
-              <p className="text-xs text-white/70 mb-4">
+              <p className="text-xs text-gray-600 mb-4">
                 Закрепляем за Вами личного менеджера, который ведёт Вас от первого звонка до получения авто.
               </p>
-              <p className="text-xs text-primary/80 italic mt-auto pt-4 border-t border-white/10">
+              <p className="text-xs text-primary/80 italic mt-auto pt-4 border-t border-gray-200">
                 Вы получаете регулярные отчёты о ходе доставки, помощь с документами и 24/7 поддержку по любым вопросам.
               </p>
             </div>
 
             {/* Card 6 - 20% Savings */}
-            <div className="bg-gradient-to-br from-primary to-blue-600 rounded-2xl p-8 text-white flex flex-col justify-center relative overflow-hidden shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+            <div className="bg-gradient-to-br from-primary to-blue-600 rounded-2xl p-8 text-gray-900 flex flex-col justify-center relative overflow-hidden shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay" />
               <div className="relative z-10">
                 <h3 className="text-3xl font-black mb-4">
                   30% ЭКОНОМИИ
                 </h3>
-                <p className="text-sm text-white/90">
-                  <strong className="text-white">Вы получите авто за счет прямых поставок,</strong> без посредников.
+                <p className="text-sm text-gray-800">
+                  <strong className="text-gray-900">Вы получите авто за счет прямых поставок,</strong> без посредников.
                 </p>
               </div>
             </div>
@@ -351,10 +351,10 @@ export default function AboutPage() {
       {/* Consultation Form Section */}
       <section className="py-20 px-8 bg-background relative overflow-hidden">
         <div className="max-w-screen-2xl mx-auto relative z-10">
-          <div className="glass-panel border border-white/10 rounded-3xl p-8 lg:p-12">
+          <div className="glass-panel border border-gray-200 rounded-3xl p-8 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Left side - Text */}
-              <div className="text-white">
+              <div className="text-gray-900">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-8">
                   ПОЛУЧИТЕ БЕСПЛАТНУЮ КОНСУЛЬТАЦИЮ<br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">ПО ПОДБОРУ АВТОМОБИЛЯ</span>
@@ -363,23 +363,23 @@ export default function AboutPage() {
                 <ul className="space-y-4">
                   <li className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5 border border-primary/50 text-primary">✓</div>
-                    <span className="text-white/80">Объясним, как проходит процесс покупки и доставки авто</span>
+                    <span className="text-gray-700">Объясним, как проходит процесс покупки и доставки авто</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5 border border-primary/50 text-primary">✓</div>
-                    <span className="text-white/80">Подберём подходящие модели под ваш бюджет и задачи</span>
+                    <span className="text-gray-700">Подберём подходящие модели под ваш бюджет и задачи</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5 border border-primary/50 text-primary">✓</div>
-                    <span className="text-white/80">Рассчитаем стоимость авто с учётом всех расходов</span>
+                    <span className="text-gray-700">Рассчитаем стоимость авто с учётом всех расходов</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5 border border-primary/50 text-primary">✓</div>
-                    <span className="text-white/80">Расскажем об актуальных акциях и возможных скидках</span>
+                    <span className="text-gray-700">Расскажем об актуальных акциях и возможных скидках</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5 border border-primary/50 text-primary">✓</div>
-                    <span className="text-white/80">Ответим на все вопросы по покупке, доставке и растаможке</span>
+                    <span className="text-gray-700">Ответим на все вопросы по покупке, доставке и растаможке</span>
                   </li>
                 </ul>
               </div>
@@ -392,11 +392,11 @@ export default function AboutPage() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="h-12 bg-black/40 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-primary focus-visible:border-primary transition-all"
+                  className="h-12 bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus-visible:ring-primary focus-visible:border-primary transition-all"
                 />
 
                 <div className="flex gap-2">
-                  <div className="flex items-center justify-center h-12 w-16 bg-black/40 border border-white/10 rounded-md text-sm text-white/70">
+                  <div className="flex items-center justify-center h-12 w-16 bg-white border border-gray-200 rounded-md text-sm text-gray-600">
                     +7
                   </div>
                   <Input
@@ -405,7 +405,7 @@ export default function AboutPage() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     required
-                    className="h-12 bg-black/40 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-primary focus-visible:border-primary transition-all flex-1"
+                    className="h-12 bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus-visible:ring-primary focus-visible:border-primary transition-all flex-1"
                   />
                 </div>
 
@@ -414,10 +414,10 @@ export default function AboutPage() {
                   onValueChange={(value) => setFormData({ ...formData, budget: value })}
                   required
                 >
-                  <SelectTrigger className="h-12 bg-black/40 border-white/10 text-white focus:ring-primary transition-all">
+                  <SelectTrigger className="h-12 bg-white border-gray-200 text-gray-900 focus:ring-primary transition-all">
                     <SelectValue placeholder="Выберите бюджет" />
                   </SelectTrigger>
-                  <SelectContent className="bg-background border-white/10 text-white">
+                  <SelectContent className="bg-background border-gray-200 text-gray-900">
                     <SelectItem value="500k">До 500 000 ₽</SelectItem>
                     <SelectItem value="1m">500 000 - 1 000 000 ₽</SelectItem>
                     <SelectItem value="2m">1 000 000 - 2 000 000 ₽</SelectItem>
@@ -439,11 +439,11 @@ export default function AboutPage() {
                     id="consultation-terms-about"
                     checked={agreed}
                     onCheckedChange={(checked: boolean) => setAgreed(checked)}
-                    className="mt-1 border-white/20 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                    className="mt-1 border-gray-300 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
                   />
                   <label
                     htmlFor="consultation-terms-about"
-                    className="text-xs text-white/50 leading-relaxed cursor-pointer hover:text-white/70 transition-colors"
+                    className="text-xs text-gray-500 leading-relaxed cursor-pointer hover:text-gray-600 transition-colors"
                   >
                     Я даю согласие на обработку персональных данных и соглашаюсь с политикой конфиденциальности.
                   </label>

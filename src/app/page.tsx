@@ -102,46 +102,46 @@ export default function Home() {
           
           {/* Left Content */}
           <div className="flex flex-col items-start pt-10 lg:pt-0 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 backdrop-blur-md mb-6 animate-in fade-in slide-in-from-bottom-4 duration-1000">
               <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs font-semibold text-white/80 tracking-widest uppercase">Премиальный импорт</span>
+              <span className="text-xs font-semibold text-gray-700 tracking-widest uppercase">Премиальный импорт</span>
             </div>
             
-            <h1 className="text-5xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150">
+            <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150">
               АВТО ИЗ ЕВРОПЫ <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-cyan-400 text-glow">
                 БЕЗ КОМПРОМИССОВ
               </span>
             </h1>
             
-            <p className="text-lg lg:text-xl text-white/60 mb-8 max-w-xl leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
+            <p className="text-lg lg:text-xl text-gray-500 mb-8 max-w-xl leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
               Мы доставляем автомобили под ключ быстрее и дешевле рынка. От подбора на аукционах до постановки на учёт в РФ — полное сопровождение и прозрачность.
             </p>
 
             <div className="grid grid-cols-2 gap-x-8 gap-y-4 mb-10 w-full animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
+                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border border-gray-200 shrink-0">
                   <Globe className="w-5 h-5 text-primary" />
                 </div>
-                <div className="text-sm font-medium text-white/80">Доступ ко всем<br/>базам Европы</div>
+                <div className="text-sm font-medium text-gray-700">Доступ ко всем<br/>базам Европы</div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
+                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border border-gray-200 shrink-0">
                   <Shield className="w-5 h-5 text-primary" />
                 </div>
-                <div className="text-sm font-medium text-white/80">Юридическая<br/>чистота 100%</div>
+                <div className="text-sm font-medium text-gray-700">Юридическая<br/>чистота 100%</div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
+                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border border-gray-200 shrink-0">
                   <Clock className="w-5 h-5 text-primary" />
                 </div>
-                <div className="text-sm font-medium text-white/80">Доставка от<br/>7 до 14 дней</div>
+                <div className="text-sm font-medium text-gray-700">Доставка от<br/>7 до 14 дней</div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
+                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border border-gray-200 shrink-0">
                   <CheckCircle2 className="w-5 h-5 text-primary" />
                 </div>
-                <div className="text-sm font-medium text-white/80">Выгода до 30%<br/>от рынка РФ</div>
+                <div className="text-sm font-medium text-gray-700">Выгода до 30%<br/>от рынка РФ</div>
               </div>
             </div>
           </div>
@@ -153,26 +153,26 @@ export default function Home() {
               <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-5 group-hover:animate-shine" />
               
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-white mb-2">Рассчитать стоимость</h3>
-                <p className="text-sm text-white/50 mb-6">Оставьте заявку, и наш эксперт свяжется с вами для детального расчёта.</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Рассчитать стоимость</h3>
+                <p className="text-sm text-gray-500 mb-6">Оставьте заявку, и наш эксперт свяжется с вами для детального расчёта.</p>
 
                 <form onSubmit={handleHeroFormSubmit} className="space-y-4">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-medium text-white/70 ml-1">Как к вам обращаться?</label>
+                    <label className="text-xs font-medium text-gray-600 ml-1">Как к вам обращаться?</label>
                     <Input
                       type="text"
                       placeholder="Ваше имя"
                       value={heroFormData.name}
                       onChange={(e) => setHeroFormData({ ...heroFormData, name: e.target.value })}
                       required
-                      className="h-12 bg-black/40 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-primary focus-visible:border-primary transition-all"
+                      className="h-12 bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus-visible:ring-primary focus-visible:border-primary transition-all"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-medium text-white/70 ml-1">Контактный телефон</label>
+                    <label className="text-xs font-medium text-gray-600 ml-1">Контактный телефон</label>
                     <div className="flex gap-2">
-                      <div className="flex items-center justify-center h-12 w-16 bg-black/40 border border-white/10 rounded-md text-sm text-white/70">
+                      <div className="flex items-center justify-center h-12 w-16 bg-white border border-gray-200 rounded-md text-sm text-gray-600">
                         +7
                       </div>
                       <Input
@@ -181,22 +181,22 @@ export default function Home() {
                         value={heroFormData.phone}
                         onChange={(e) => setHeroFormData({ ...heroFormData, phone: e.target.value })}
                         required
-                        className="h-12 bg-black/40 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-primary focus-visible:border-primary transition-all flex-1"
+                        className="h-12 bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus-visible:ring-primary focus-visible:border-primary transition-all flex-1"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-medium text-white/70 ml-1">Планируемый бюджет</label>
+                    <label className="text-xs font-medium text-gray-600 ml-1">Планируемый бюджет</label>
                     <Select
                       value={heroFormData.budget}
                       onValueChange={(value) => setHeroFormData({ ...heroFormData, budget: value })}
                       required
                     >
-                      <SelectTrigger className="h-12 bg-black/40 border-white/10 text-white focus:ring-primary transition-all">
+                      <SelectTrigger className="h-12 bg-white border-gray-200 text-gray-900 focus:ring-primary transition-all">
                         <SelectValue placeholder="Выберите бюджет" />
                       </SelectTrigger>
-                      <SelectContent className="bg-background border-white/10 text-white">
+                      <SelectContent className="bg-background border-gray-200 text-gray-900">
                         <SelectItem value="500k">До 500 000 ₽</SelectItem>
                         <SelectItem value="1m">500 000 - 1 000 000 ₽</SelectItem>
                         <SelectItem value="2m">1 000 000 - 2 000 000 ₽</SelectItem>
@@ -224,11 +224,11 @@ export default function Home() {
                       id="terms"
                       checked={agreed}
                       onCheckedChange={(checked: boolean) => setAgreed(checked)}
-                      className="mt-1 border-white/20 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                      className="mt-1 border-gray-300 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
                     />
                     <label
                       htmlFor="terms"
-                      className="text-xs text-white/50 leading-relaxed cursor-pointer hover:text-white/70 transition-colors"
+                      className="text-xs text-gray-500 leading-relaxed cursor-pointer hover:text-gray-600 transition-colors"
                     >
                       Я даю согласие на обработку персональных данных и соглашаюсь с политикой конфиденциальности.
                     </label>
@@ -249,11 +249,11 @@ export default function Home() {
         <div className="w-full max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
           {/* Left Side - Text */}
           <div className="flex-1 text-center md:text-left">
-            <h2 className="text-3xl lg:text-5xl font-bold text-white leading-tight mb-4">
+            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
               КЛИЕНТЫ, КОТОРЫЕ<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">УЖЕ ПОЛУЧИЛИ АВТО</span>
             </h2>
-            <p className="text-white/60 text-lg">
+            <p className="text-gray-500 text-lg">
               Более 1 000 человек уже доверили нам растаможку и доставку своих авто.
             </p>
           </div>
@@ -284,8 +284,8 @@ export default function Home() {
 
               {/* Counter Badge */}
               <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-background bg-gradient-to-br from-primary to-blue-600 flex flex-col items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.4)] z-10 transition-transform hover:scale-110">
-                <div className="text-white font-black md:text-lg text-sm leading-none">1000+</div>
-                <div className="text-white/80 text-[10px] uppercase tracking-wider font-semibold mt-0.5">чел</div>
+                <div className="text-gray-900 font-black md:text-lg text-sm leading-none">1000+</div>
+                <div className="text-gray-700 text-[10px] uppercase tracking-wider font-semibold mt-0.5">чел</div>
               </div>
             </div>
           </div>
@@ -302,11 +302,11 @@ export default function Home() {
         
         <div className="w-full max-w-screen-2xl mx-auto relative z-10">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               БЕЗОПАСНОСТЬ СДЕЛКИ <br />
               <span className="text-primary italic">ГАРАНТИРОВАНА</span>
             </h2>
-            <p className="text-lg text-white/70">
+            <p className="text-lg text-gray-600">
               Покупка автомобиля за границей сопряжена с рисками. Мы берем все риски из вашей головы и переносим их в юридический договор.
             </p>
           </div>
@@ -319,8 +319,8 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Скрытые дефекты</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Скрытые дефекты</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
                 Страх купить авто с замаскированным кузовным ремонтом или скрученным пробегом.
               </p>
             </div>
@@ -332,8 +332,8 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Рост цены</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Рост цены</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
                 Опасение, что цена «под ключ» вырастет на огромную сумму при расчете растаможки.
               </p>
             </div>
@@ -345,8 +345,8 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Логистика и банки</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Логистика и банки</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
                 Боязнь того, что авто застрянет на границе или ваши деньги заморозят в банке.
               </p>
             </div>
@@ -361,8 +361,8 @@ export default function Home() {
                   <Shield className="w-10 h-10 text-green-600" />
                 </div>
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">МЫ ИСКЛЮЧИЛИ ЭТИ РИСКИ</h3>
-                  <p className="text-white/90 text-lg">Полная юридическая прозрачность и ответственность с 2018 года.</p>
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">МЫ ИСКЛЮЧИЛИ ЭТИ РИСКИ</h3>
+                  <p className="text-gray-800 text-lg">Полная юридическая прозрачность и ответственность с 2018 года.</p>
                 </div>
               </div>
               <Button onClick={() => setContactDialogOpen(true)} className="bg-white text-green-700 hover:bg-gray-100 px-8 py-6 text-lg font-bold rounded-xl whitespace-nowrap shadow-lg">
@@ -378,7 +378,7 @@ export default function Home() {
         <div className="w-full max-w-screen-2xl mx-auto">
           <div className="flex flex-col items-center mb-16 text-center">
             <span className="text-primary font-bold tracking-widest text-sm uppercase mb-3 drop-shadow-md">Процесс</span>
-            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
               ВЫБИРАЕТЕ АВТО - <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">ОСТАЛЬНОЕ БЕРЁМ НА СЕБЯ</span>
             </h2>
             <div className="h-1 w-20 bg-gradient-to-r from-primary to-blue-400 rounded-full" />
@@ -389,14 +389,14 @@ export default function Home() {
             <div className="glass-panel rounded-2xl overflow-hidden group">
               <div className="grid grid-cols-1 md:grid-cols-2 h-full gap-6">
                 <div className="p-8 flex flex-col justify-center">
-                  <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-3">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-3">
                     <Shield className="w-6 h-6 text-primary" /> ЮРИДИЧЕСКАЯ БЕЗОПАСНОСТЬ
                   </h3>
-                  <p className="text-white/60 text-sm mb-4 leading-relaxed">
+                  <p className="text-gray-500 text-sm mb-4 leading-relaxed">
                     Ваш автомобиль будет ввезён и оформлен в РФ строго по закону — без рисков и скрытых проблем.
                   </p>
-                  <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                    <p className="text-white/80 text-xs leading-relaxed">
+                  <div className="p-4 rounded-xl bg-gray-100 border border-gray-200">
+                    <p className="text-gray-700 text-xs leading-relaxed">
                       <strong>Точно то, что вы хотите</strong><br />
                       Мы фиксируем все ваши требования в договоре: марка, комплектация, год, пробег, бюджет — и ищем идеальное соответствие.
                     </p>
@@ -427,10 +427,10 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent md:hidden block" />
                 </div>
                 <div className="p-8 flex flex-col justify-center order-1 md:order-2">
-                  <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-3">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-3">
                     <CheckCircle2 className="w-6 h-6 text-primary" /> ЕВРОПЕЙСКОЕ КАЧЕСТВО
                   </h3>
-                  <p className="text-white/60 text-sm leading-relaxed">
+                  <p className="text-gray-500 text-sm leading-relaxed">
                     Используем лучшие предложения с автоаукционов Европы и 10-летний опыт, чтобы подобрать надёжный авто в рамках вашего бюджета.
                   </p>
                 </div>
@@ -441,10 +441,10 @@ export default function Home() {
             <div className="glass-panel rounded-2xl overflow-hidden group">
               <div className="grid grid-cols-1 md:grid-cols-2 h-full gap-6">
                 <div className="p-8 flex flex-col justify-center">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                     <Globe className="w-6 h-6 text-primary" /> БЕРЁМ НА СЕБЯ ВСЁ СЛОЖНОЕ:
                   </h3>
-                  <ul className="space-y-3 text-white/60 text-sm">
+                  <ul className="space-y-3 text-gray-500 text-sm">
                     <li className="flex gap-3">
                       <span className="text-primary drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">•</span>
                       Поиск, бронирование, выкуп и доставка авто.
@@ -484,19 +484,19 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent md:hidden block" />
                 </div>
                 <div className="p-8 flex flex-col justify-center order-1 md:order-2">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                     <Clock className="w-6 h-6 text-primary" /> ВАМ ОСТАЁТСЯ ТОЛЬКО:
                   </h3>
-                  <ul className="space-y-4 text-white/60 text-sm">
-                    <li className="flex items-start gap-3 bg-white/5 p-3 rounded-lg border border-white/5 hover:border-white/10 transition-colors">
+                  <ul className="space-y-4 text-gray-500 text-sm">
+                    <li className="flex items-start gap-3 bg-gray-100 p-3 rounded-lg border border-gray-100 hover:border-gray-200 transition-colors">
                       <span className="text-green-500 font-bold mt-0.5">✓</span>
                       <span>Описать желаемый автомобиль</span>
                     </li>
-                    <li className="flex items-start gap-3 bg-white/5 p-3 rounded-lg border border-white/5 hover:border-white/10 transition-colors">
+                    <li className="flex items-start gap-3 bg-gray-100 p-3 rounded-lg border border-gray-100 hover:border-gray-200 transition-colors">
                       <span className="text-green-500 font-bold mt-0.5">✓</span>
                       <span>Выбрать способ оплаты</span>
                     </li>
-                    <li className="flex items-start gap-3 bg-white/5 p-3 rounded-lg border border-white/5 hover:border-white/10 transition-colors">
+                    <li className="flex items-start gap-3 bg-gray-100 p-3 rounded-lg border border-gray-100 hover:border-gray-200 transition-colors">
                       <span className="text-green-500 font-bold mt-0.5">✓</span>
                       <span>Получить ключи — спокойно и без стресса</span>
                     </li>
@@ -507,7 +507,7 @@ export default function Home() {
           </div>
 
           {/* Bottom Banner */}
-          <div className="rounded-2xl overflow-hidden mt-8 relative shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-card border border-white/10">
+          <div className="rounded-2xl overflow-hidden mt-8 relative shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-card border border-gray-200">
             <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
             
             <div className="grid grid-cols-1 lg:grid-cols-2 relative z-20">
@@ -515,30 +515,30 @@ export default function Home() {
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary text-xs font-bold uppercase tracking-widest w-fit mb-6">
                   Наш опыт работает на вас
                 </div>
-                <h3 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight tracking-tight text-glow">
+                <h3 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 leading-tight tracking-tight text-glow">
                   «Sapfyr» — ВАШ НАДЕЖНЫЙ ПАРТНЁР
                 </h3>
-                <p className="text-white/70 mb-8 text-lg font-medium">
+                <p className="text-gray-600 mb-8 text-lg font-medium">
                   Мы экономим ваше время, бережем нервы и защищаем ваши интересы при покупке авто из Европы.
                 </p>
 
                 <div className="space-y-4 mb-10">
-                  <div className="flex items-start gap-4 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-default">
+                  <div className="flex items-start gap-4 p-3 rounded-xl bg-gray-100 border border-gray-200 hover:bg-gray-200 transition-colors cursor-default">
                     <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0 border border-primary/50 text-primary">✓</div>
-                    <p className="text-white/80 text-sm mt-1.5">
-                      <strong className="text-white text-base">Более 11 лет опыта</strong> — 1000+ авто по всей РФ
+                    <p className="text-gray-700 text-sm mt-1.5">
+                      <strong className="text-gray-900 text-base">Более 11 лет опыта</strong> — 1000+ авто по всей РФ
                     </p>
                   </div>
-                  <div className="flex items-start gap-4 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-default">
+                  <div className="flex items-start gap-4 p-3 rounded-xl bg-gray-100 border border-gray-200 hover:bg-gray-200 transition-colors cursor-default">
                     <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0 border border-primary/50 text-primary">✓</div>
-                    <p className="text-white/80 text-sm mt-1.5">
-                      <strong className="text-white text-base">Экономия 20-30%</strong> — прямые поставки
+                    <p className="text-gray-700 text-sm mt-1.5">
+                      <strong className="text-gray-900 text-base">Экономия 20-30%</strong> — прямые поставки
                     </p>
                   </div>
-                  <div className="flex items-start gap-4 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-default">
+                  <div className="flex items-start gap-4 p-3 rounded-xl bg-gray-100 border border-gray-200 hover:bg-gray-200 transition-colors cursor-default">
                     <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0 border border-primary/50 text-primary">✓</div>
-                    <p className="text-white/80 text-sm mt-1.5">
-                      <strong className="text-white text-base">Абсолютно прозрачные цены</strong> — без скрытых комиссий
+                    <p className="text-gray-700 text-sm mt-1.5">
+                      <strong className="text-gray-900 text-base">Абсолютно прозрачные цены</strong> — без скрытых комиссий
                     </p>
                   </div>
                 </div>
@@ -551,7 +551,7 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="w-14 h-14 bg-[#0088cc] rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-[0_0_20px_rgba(0,136,204,0.5)]"
                     >
-                      <Send className="w-6 h-6 text-white ml-1" />
+                      <Send className="w-6 h-6 text-gray-900 ml-1" />
                     </a>
                     <a
                       href="https://max.ru/u/f9LHodD0cOLd_wpVLKdoX-6cYVQPnzVsKXfd4Yyv1T741m3KQNI63EzYpvY"
@@ -559,10 +559,10 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="w-14 h-14 bg-[#0088cc] rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-[0_0_20px_rgba(0,136,204,0.5)]"
                     >
-                      <MessageSquare className="w-6 h-6 text-white" />
+                      <MessageSquare className="w-6 h-6 text-gray-900" />
                     </a>
                   </div>
-                  <p className="text-white/80 text-sm leading-relaxed text-center sm:text-left">
+                  <p className="text-gray-700 text-sm leading-relaxed text-center sm:text-left">
                     Свежие поступления и онлайн-консультации <strong>с 8 до 22 МСК</strong> в наших мессенджерах!
                   </p>
                 </div>
@@ -729,15 +729,15 @@ function HowToGetCarSection() {
       <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="w-full max-w-screen-2xl mx-auto relative z-10">
-        <div className="mb-16 md:mb-20 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8 border-b border-white/5 pb-8">
+        <div className="mb-16 md:mb-20 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8 border-b border-gray-100 pb-8">
           <div>
             <span className="text-primary font-bold tracking-widest text-sm uppercase mb-3 block drop-shadow-md">Алгоритм</span>
-            <h2 className="text-3xl lg:text-5xl font-bold text-white leading-tight">
+            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 leading-tight">
               КАК ПОЛУЧИТЬ АВТОМОБИЛЬ<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">ИЗ ДРУГИХ СТРАН, ОТ А ДО Я</span>
             </h2>
           </div>
-          <div className="w-full md:w-[600px] h-[500px] bg-background border border-white/10 rounded-2xl overflow-hidden shadow-2xl h-full relative group">
+          <div className="w-full md:w-[600px] h-[500px] bg-background border border-gray-200 rounded-2xl overflow-hidden shadow-2xl h-full relative group">
               
               {/* Decorative glows */}
               <div className="absolute -top-20 -left-20 w-40 h-40 bg-primary/30 rounded-full blur-[50px] z-20 pointer-events-none opacity-50" />
@@ -757,10 +757,10 @@ function HowToGetCarSection() {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent flex flex-col justify-end p-8">
-                      <div className="glass-panel border border-white/10 rounded-2xl p-6 backdrop-blur-md transform translate-y-0 opacity-100 transition-all duration-500 delay-200 shadow-2xl">
+                      <div className="glass-panel border border-gray-200 rounded-2xl p-6 backdrop-blur-md transform translate-y-0 opacity-100 transition-all duration-500 delay-200 shadow-2xl">
                         
                         <div className="flex items-center justify-between gap-2 mb-4">
-                          <h4 className="font-bold text-xl text-white drop-shadow-md">{review.name}</h4>
+                          <h4 className="font-bold text-xl text-gray-900 drop-shadow-md">{review.name}</h4>
                           <div className="flex gap-1">
                             {[...Array(review.rating)].map((_, i) => (
                               <span key={i} className="text-yellow-400 text-lg drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]">★</span>
@@ -768,14 +768,14 @@ function HowToGetCarSection() {
                           </div>
                         </div>
                         
-                        <p className="text-sm text-white/80 leading-relaxed mb-6 italic">
+                        <p className="text-sm text-gray-700 leading-relaxed mb-6 italic">
                           "{review.text}"
                         </p>
 
-                        <div className="flex items-center gap-4 pt-4 border-t border-white/10">
-                          <div className="flex bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/5 items-center gap-2">
-                             <div className="text-xs text-white/60 font-medium">Яндекс</div>
-                             <div className="text-sm text-white font-bold">4.9</div>
+                        <div className="flex items-center gap-4 pt-4 border-t border-gray-200">
+                          <div className="flex bg-gray-200 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-gray-100 items-center gap-2">
+                             <div className="text-xs text-gray-500 font-medium">Яндекс</div>
+                             <div className="text-sm text-gray-900 font-bold">4.9</div>
                           </div>
                           <div className="flex bg-green-500/20 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-green-500/30 items-center gap-2">
                              <div className="text-xs text-green-400 font-medium">2ГИС</div>
@@ -792,20 +792,20 @@ function HowToGetCarSection() {
               <div className="absolute top-1/2 -translate-y-1/2 inset-x-4 flex justify-between z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button
                   onClick={() => setCurrentReview((prev) => (prev - 1 + activeReviews.length) % activeReviews.length)}
-                  className="w-12 h-12 bg-background/50 hover:bg-primary/80 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/10 transition-all hover:scale-110 shadow-lg"
+                  className="w-12 h-12 bg-background/50 hover:bg-primary/80 backdrop-blur-md rounded-full flex items-center justify-center text-gray-900 border border-gray-200 transition-all hover:scale-110 shadow-lg"
                 >
                   <ChevronRight className="w-6 h-6 rotate-180" />
                 </button>
                 <button
                   onClick={() => setCurrentReview((prev) => (prev + 1) % activeReviews.length)}
-                  className="w-12 h-12 bg-background/50 hover:bg-primary/80 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/10 transition-all hover:scale-110 shadow-lg"
+                  className="w-12 h-12 bg-background/50 hover:bg-primary/80 backdrop-blur-md rounded-full flex items-center justify-center text-gray-900 border border-gray-200 transition-all hover:scale-110 shadow-lg"
                 >
                   <ChevronRight className="w-6 h-6" />
                 </button>
               </div>
 
               {/* Progress Dots */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30 bg-background/50 backdrop-blur-md px-3 py-2 rounded-full border border-white/10">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30 bg-background/50 backdrop-blur-md px-3 py-2 rounded-full border border-gray-200">
                 {activeReviews.map((_, index) => (
                   <button
                     key={index}
@@ -879,13 +879,13 @@ function ConsultationFormSection() {
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-screen-2xl mx-auto relative z-10">
-        <div className="glass-panel border border-white/10 rounded-2xl overflow-hidden shadow-2xl relative">
+        <div className="glass-panel border border-gray-200 rounded-2xl overflow-hidden shadow-2xl relative">
           {/* Subtle gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 p-8 md:p-12 relative z-10">
             {/* Left side - Text */}
-            <div className="text-white">
+            <div className="text-gray-900">
               <span className="text-primary font-bold tracking-widest text-sm uppercase mb-3 block drop-shadow-md">Индивидуальный подход</span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
                 ПОЛУЧИТЕ БЕСПЛАТНУЮ КОНСУЛЬТАЦИЮ<br />
@@ -925,13 +925,13 @@ function ConsultationFormSection() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="h-14 bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary/50 focus:ring-primary/50 transition-colors"
+                  className="h-14 bg-gray-100 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-primary/50 focus:ring-primary/50 transition-colors"
                 />
 
                 <div className="flex gap-2">
-                  <div className="flex items-center gap-2 h-14 px-4 bg-white/5 border border-white/10 rounded-md">
+                  <div className="flex items-center gap-2 h-14 px-4 bg-gray-100 border border-gray-200 rounded-md">
                     <span className="text-2xl">🇷🇺</span>
-                    <span className="text-white/60">+7</span>
+                    <span className="text-gray-500">+7</span>
                   </div>
                   <Input
                     type="tel"
@@ -939,7 +939,7 @@ function ConsultationFormSection() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     required
-                    className="h-14 bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary/50 focus:ring-primary/50 transition-colors flex-1"
+                    className="h-14 bg-gray-100 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-primary/50 focus:ring-primary/50 transition-colors flex-1"
                   />
                 </div>
 
@@ -948,15 +948,15 @@ function ConsultationFormSection() {
                   onValueChange={(value) => setFormData({ ...formData, budget: value })}
                   required
                 >
-                  <SelectTrigger className="h-14 bg-white/5 border-white/10 text-white focus:border-primary/50 focus:ring-primary/50 transition-colors">
+                  <SelectTrigger className="h-14 bg-gray-100 border-gray-200 text-gray-900 focus:border-primary/50 focus:ring-primary/50 transition-colors">
                     <SelectValue placeholder="Выберите бюджет" />
                   </SelectTrigger>
-                  <SelectContent className="bg-card border-white/10 text-white">
-                    <SelectItem value="500k" className="focus:bg-white/10 focus:text-white">До 500 000 ₽</SelectItem>
-                    <SelectItem value="1m" className="focus:bg-white/10 focus:text-white">500 000 - 1 000 000 ₽</SelectItem>
-                    <SelectItem value="2m" className="focus:bg-white/10 focus:text-white">1 000 000 - 2 000 000 ₽</SelectItem>
-                    <SelectItem value="3m" className="focus:bg-white/10 focus:text-white">2 000 000 - 3 000 000 ₽</SelectItem>
-                    <SelectItem value="more" className="focus:bg-white/10 focus:text-white">Более 3 000 000 ₽</SelectItem>
+                  <SelectContent className="bg-card border-gray-200 text-gray-900">
+                    <SelectItem value="500k" className="focus:bg-gray-200 focus:text-gray-900">До 500 000 ₽</SelectItem>
+                    <SelectItem value="1m" className="focus:bg-gray-200 focus:text-gray-900">500 000 - 1 000 000 ₽</SelectItem>
+                    <SelectItem value="2m" className="focus:bg-gray-200 focus:text-gray-900">1 000 000 - 2 000 000 ₽</SelectItem>
+                    <SelectItem value="3m" className="focus:bg-gray-200 focus:text-gray-900">2 000 000 - 3 000 000 ₽</SelectItem>
+                    <SelectItem value="more" className="focus:bg-gray-200 focus:text-gray-900">Более 3 000 000 ₽</SelectItem>
                   </SelectContent>
                 </Select>
 
@@ -973,11 +973,11 @@ function ConsultationFormSection() {
                     id="consultation-terms"
                     checked={agreed}
                     onCheckedChange={(checked: boolean) => setAgreed(checked)}
-                    className="mt-1 border-white/20 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                    className="mt-1 border-gray-300 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
                   />
                   <label
                     htmlFor="consultation-terms"
-                    className="text-sm text-white/50 leading-tight cursor-pointer hover:text-white/70 transition-colors"
+                    className="text-sm text-gray-500 leading-tight cursor-pointer hover:text-gray-600 transition-colors"
                   >
                     Я согласился с условиями пользовательского соглашения
                   </label>
@@ -1023,7 +1023,7 @@ function FAQSection() {
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-12">
           <span className="text-primary font-bold tracking-widest text-sm uppercase mb-3 block drop-shadow-md">Ответы экспертов</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
             ОТВЕЧАЕМ НА ЧАСТО<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">ЗАДАВАЕМЫЕ ВОПРОСЫ</span>
           </h2>
@@ -1031,21 +1031,21 @@ function FAQSection() {
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="glass-panel border border-white/5 hover:border-white/20 rounded-2xl overflow-hidden transition-colors">
+            <div key={index} className="glass-panel border border-gray-100 hover:border-gray-300 rounded-2xl overflow-hidden transition-colors">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full p-6 lg:p-8 flex items-center justify-between text-left group"
               >
-                <h3 className="text-lg lg:text-xl font-bold text-white pr-8 group-hover:text-primary transition-colors">
+                <h3 className="text-lg lg:text-xl font-bold text-gray-900 pr-8 group-hover:text-primary transition-colors">
                   {faq.question}
                 </h3>
-                <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${openIndex === index ? 'bg-primary border-primary text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] rotate-45' : 'border-white/10 text-white/50 group-hover:border-primary/50 group-hover:text-primary'}`}>
+                <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${openIndex === index ? 'bg-primary border-primary text-gray-900 shadow-[0_0_15px_rgba(59,130,246,0.5)] rotate-45' : 'border-gray-200 text-gray-500 group-hover:border-primary/50 group-hover:text-primary'}`}>
                   <span className="text-2xl leading-none font-light mb-1">+</span>
                 </div>
               </button>
 
               <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <div className="p-6 lg:p-8 pt-0 text-white/60 leading-relaxed border-t border-white/5">
+                <div className="p-6 lg:p-8 pt-0 text-gray-500 leading-relaxed border-t border-gray-100">
                   {faq.answer}
                 </div>
               </div>
@@ -1226,7 +1226,7 @@ function ClientReviewsSection() {
         <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
           <div className="text-center md:text-left">
             <span className="text-primary font-bold tracking-widest text-sm uppercase mb-3 block drop-shadow-md">Нам доверяют</span>
-            <h2 className="text-3xl lg:text-5xl font-bold text-white leading-tight">
+            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 leading-tight">
               ОТЗЫВЫ КЛИЕНТОВ —<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">ПОКАЗАТЕЛЬ КАЧЕСТВА</span>
             </h2>
@@ -1234,13 +1234,13 @@ function ClientReviewsSection() {
           <div className="flex gap-3">
             <button
               onClick={() => scroll('left')}
-              className="w-12 h-12 lg:w-14 lg:h-14 bg-white/5 hover:bg-primary/20 hover:border-primary/50 text-white rounded-full flex items-center justify-center transition-all border border-white/10 hover:scale-110 group shadow-[0_0_15px_rgba(0,0,0,0.2)]"
+              className="w-12 h-12 lg:w-14 lg:h-14 bg-gray-100 hover:bg-primary/20 hover:border-primary/50 text-gray-900 rounded-full flex items-center justify-center transition-all border border-gray-200 hover:scale-110 group shadow-[0_0_15px_rgba(0,0,0,0.2)]"
             >
               <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 rotate-180 group-hover:-translate-x-1 transition-transform" />
             </button>
             <button
               onClick={() => scroll('right')}
-              className="w-12 h-12 lg:w-14 lg:h-14 bg-white/5 hover:bg-primary/20 hover:border-primary/50 text-white rounded-full flex items-center justify-center transition-all border border-white/10 hover:scale-110 group shadow-[0_0_15px_rgba(0,0,0,0.2)]"
+              className="w-12 h-12 lg:w-14 lg:h-14 bg-gray-100 hover:bg-primary/20 hover:border-primary/50 text-gray-900 rounded-full flex items-center justify-center transition-all border border-gray-200 hover:scale-110 group shadow-[0_0_15px_rgba(0,0,0,0.2)]"
             >
               <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -1253,15 +1253,15 @@ function ClientReviewsSection() {
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {activeReviews.map((review, index) => (
-            <div key={index} className="flex-shrink-0 w-80 md:w-96 glass-panel border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 snap-center group">
+            <div key={index} className="flex-shrink-0 w-80 md:w-96 glass-panel border border-gray-200 rounded-2xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 snap-center group">
               {/* Header with name */}
-              <div className="p-6 md:p-8 border-b border-white/5">
-                <h4 className="font-bold text-lg text-white group-hover:text-primary transition-colors">{review.name}</h4>
+              <div className="p-6 md:p-8 border-b border-gray-100">
+                <h4 className="font-bold text-lg text-gray-900 group-hover:text-primary transition-colors">{review.name}</h4>
               </div>
 
               {/* Review text */}
               <div className="p-6 md:p-8 min-h-[140px]">
-                <p className="text-sm text-white/70 leading-relaxed italic">
+                <p className="text-sm text-gray-600 leading-relaxed italic">
                   "{review.text}"
                 </p>
               </div>
@@ -1286,13 +1286,13 @@ function ClientReviewsSection() {
                       <span>2ГИС</span>
                     </div>
                   ) : (
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shadow-[0_0_10px_rgba(255,255,255,0.1)]">
+                    <div className="bg-gray-200 backdrop-blur-sm border border-gray-300 text-gray-900 px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shadow-[0_0_10px_rgba(255,255,255,0.1)]">
                       <span>Яндекс</span>
                     </div>
                   )}
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
-                      <span key={i} className={`text-sm md:text-base ${i < Math.floor(review.rating) ? 'text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.5)]' : 'text-white/20'}`}>★</span>
+                      <span key={i} className={`text-sm md:text-base ${i < Math.floor(review.rating) ? 'text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.5)]' : 'text-gray-300'}`}>★</span>
                     ))}
                   </div>
                 </div>
