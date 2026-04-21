@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     images: [
       {
-        url: "https://lts-prigon.ru/lts_office_preview.jpg",
+        url: "https://sapfyr.netlify.app/Gemini_Generated_Image_gs1vi0gs1vi0gs1v.jpeg",
         width: 1200,
         height: 630,
         alt: "Sapfyr - Автомобили из Европы",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sapfyr - Авто из Европы с доставкой по РФ",
     description: "Автомобили из Европы под ключ. Подбор, доставка, растаможка. Более 11 лет на рынке, 1000+ довольных клиентов.",
-    images: ["https://lts-prigon.ru/lts_office_preview.jpg"],
+    images: ["https://sapfyr.netlify.app/Gemini_Generated_Image_gs1vi0gs1vi0gs1v.jpeg"],
   },
   robots: {
     index: true,
