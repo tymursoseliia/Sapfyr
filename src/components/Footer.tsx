@@ -13,7 +13,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block group mb-6 hover:opacity-80 transition-opacity">
-              <img src="/logonew.png" alt="СД-Сервис" className="h-16 w-auto object-contain rounded-md" />
+              <img src="/logonew.png" alt="СД-Сервис" className="h-24 w-auto object-contain rounded-md" />
             </Link>
             <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-sm">
               Мы — ваш надёжный партнёр по покупке и доставке лучших автомобилей из Европы. Премиальный сервис без компромиссов.
