@@ -88,14 +88,13 @@ export default function Home() {
       {/* Hero Section - Redesigned for Maximum Impact */}
       <section className="relative w-full min-h-[90vh] flex items-center justify-center pt-24 pb-12 overflow-hidden mx-auto">
         {/* Background Video/Image & Overlays */}
-        <div className="absolute inset-0 w-full h-full z-0">
+        <div className="absolute inset-0 w-full h-full z-0 bg-background">
           <img
             src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?q=80&w=2615&auto=format&fit=crop"
             alt="Premium Car Import"
-            className="w-full h-full object-cover object-center transform scale-105 animate-[zoomIn_20s_ease-out_forwards]"
+            className="w-full h-full object-cover object-center transform scale-105 animate-[zoomIn_20s_ease-out_forwards] opacity-[0.15]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/50 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background" />
         </div>
 
         <div className="w-full max-w-screen-2xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -109,7 +108,7 @@ export default function Home() {
             
             <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150">
               АВТО ИЗ ЕВРОПЫ <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-cyan-400 text-glow">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-cyan-400 ">
                 БЕЗ КОМПРОМИССОВ
               </span>
             </h1>
@@ -150,7 +149,7 @@ export default function Home() {
           <div className="flex justify-center lg:justify-end animate-in fade-in zoom-in-95 duration-1000 delay-700 w-full">
             <div className="w-full max-w-md glass-panel p-8 rounded-2xl relative overflow-hidden group">
               {/* Form Glow Effect */}
-              <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-5 group-hover:animate-shine" />
+              <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-5 " />
               
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Рассчитать стоимость</h3>
@@ -243,8 +242,8 @@ export default function Home() {
       {/* Clients Section */}
       <section className="w-full py-16 px-6 bg-background relative overflow-hidden">
         {/* Decorative background elements */}
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px] -translate-y-1/2" />
-        <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] -translate-y-1/2" />
+        
+        
         
         <div className="w-full max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
           {/* Left Side - Text */}
@@ -515,7 +514,7 @@ export default function Home() {
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary text-xs font-bold uppercase tracking-widest w-fit mb-6">
                   Наш опыт работает на вас
                 </div>
-                <h3 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 leading-tight tracking-tight text-glow">
+                <h3 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 leading-tight tracking-tight ">
                   «Sapfyr» — ВАШ НАДЕЖНЫЙ ПАРТНЁР
                 </h3>
                 <p className="text-gray-600 mb-8 text-lg font-medium">
@@ -569,13 +568,12 @@ export default function Home() {
               </div>
               
               {/* Background Image that shows through gradient */}
-              <div className="absolute inset-0 lg:relative h-full w-full z-[-1] lg:z-0">
+              <div className="absolute inset-0 lg:relative h-full w-full z-[-1] lg:z-0 bg-background">
                 <img
                   src="/Gemini_Generated_Image_gs1vi0gs1vi0gs1v.jpeg"
                   alt="Premium SUV"
-                  className="w-full h-full object-cover lg:object-right object-center opacity-30 lg:opacity-100"
+                  className="w-full h-full object-cover lg:object-right object-center opacity-10"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent lg:block hidden" />
               </div>
             </div>
           </div>
@@ -725,8 +723,8 @@ function HowToGetCarSection() {
 
   return (
     <section className="w-full py-24 px-6 relative overflow-hidden bg-card">
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+      
+      
 
       <div className="w-full max-w-screen-2xl mx-auto relative z-10">
         <div className="mb-16 md:mb-20 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8 border-b border-gray-100 pb-8">
@@ -740,8 +738,8 @@ function HowToGetCarSection() {
           <div className="w-full md:w-[600px] h-[500px] bg-background border border-gray-200 rounded-2xl overflow-hidden shadow-2xl h-full relative group">
               
               {/* Decorative glows */}
-              <div className="absolute -top-20 -left-20 w-40 h-40 bg-primary/30 rounded-full blur-[50px] z-20 pointer-events-none opacity-50" />
-              <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-blue-500/30 rounded-full blur-[50px] z-20 pointer-events-none opacity-50" />
+              
+              
 
               <div className="relative h-full w-full">
                 {activeReviews.map((review, index) => (
@@ -875,8 +873,8 @@ function ConsultationFormSection() {
   return (
     <section className="py-24 px-8 bg-background relative overflow-hidden">
       {/* Decorative glows */}
-      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px] pointer-events-none -translate-y-1/2" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+      
+      
 
       <div className="max-w-screen-2xl mx-auto relative z-10">
         <div className="glass-panel border border-gray-200 rounded-2xl overflow-hidden shadow-2xl relative">

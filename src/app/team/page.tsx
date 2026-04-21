@@ -15,9 +15,8 @@ export default function TeamPage() {
       <section className="relative bg-background overflow-hidden border-b border-gray-100">
         {/* Abstract Background Elements */}
         <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
-          <div className="absolute w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -top-1/2 -right-1/4 animate-pulse opacity-50" />
-          <div className="absolute w-[600px] h-[600px] bg-[#0088cc]/5 rounded-full blur-[100px] -bottom-1/2 -left-1/4 animate-pulse opacity-50 
-            [animation-delay:2s]" />
+          
+          
           
           {/* Subtle Grid Pattern */}
           <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.02]" />
@@ -35,7 +34,7 @@ export default function TeamPage() {
 
       {/* Team Members Grid */}
       <section className="py-20 px-8 bg-card border-y border-gray-100 relative flex-grow">
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
+        
         <div className="max-w-screen-2xl mx-auto relative z-10">
           {teamMembers.length > 0 ? (
             <>

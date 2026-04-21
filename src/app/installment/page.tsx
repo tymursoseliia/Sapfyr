@@ -54,7 +54,7 @@ export default function InstallmentPage() {
     <main className="flex-1 w-full flex flex-col items-center">
       {/* Hero Section */}
       <section className="w-full pt-32 pb-20 px-6 relative overflow-hidden bg-card">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+        
         <div className="w-full max-w-screen-xl mx-auto relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-6">
             <Calculator className="w-4 h-4" />
@@ -153,8 +153,8 @@ export default function InstallmentPage() {
       {/* CTA */}
       <section className="w-full py-24 px-6 bg-gradient-to-br from-primary/20 via-background to-background relative border-t border-gray-200">
         <div className="w-full max-w-4xl mx-auto text-center bg-card border border-gray-200 rounded-3xl p-10 md:p-16 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[80px] -mr-32 -mt-32" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px] -ml-32 -mb-32" />
+          
+          
           
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 relative z-10">Остались вопросы?</h2>
           <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto relative z-10">

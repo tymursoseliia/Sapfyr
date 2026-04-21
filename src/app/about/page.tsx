@@ -110,7 +110,7 @@ export default function AboutPage() {
       <section className="py-16 px-8 bg-card border-y border-gray-100">
         <div className="max-w-screen-2xl mx-auto">
           <div className="glass-panel border-gray-200 rounded-2xl p-8 lg:p-12 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px]" />
+            
             <div className="relative z-10">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">ЧЕМ МЫ ЗАНИМАЕМСЯ</h2>
 
@@ -233,7 +233,7 @@ export default function AboutPage() {
 
       {/* Why >1000 People Section */}
       <section className="py-20 px-8 bg-card border-y border-gray-100 relative">
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
+        
         <div className="max-w-screen-2xl mx-auto relative z-10">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-10 text-center">
             ПОЧЕМУ &gt;1000 ЧЕЛОВЕК РЕШИЛИ<br />
