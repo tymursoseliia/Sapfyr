@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   keywords: "авто из европы, автомобили из европы, пригон авто, растаможка авто, СД-Сервис",
   authors: [{ name: "СД-Сервис" }],
   icons: {
-    icon: "/logo.jpg",
-    shortcut: "/logo.jpg",
-    apple: "/logo.jpg",
+    icon: "/logonew.png",
+    shortcut: "/logonew.png",
+    apple: "/logonew.png",
   },
   openGraph: {
     title: "СД-Сервис - Авто из Европы с доставкой по РФ",
