@@ -59,7 +59,7 @@ export function Footer() {
                     <MessageCircle className="w-3.5 h-3.5 text-primary" />
                   </div>
                   <div>
-                    <div className="text-white/40 text-xs mb-0.5">Телефон (8-20 МСК)</div>
+                    <div className="text-white/40 text-xs mb-0.5">Телефон</div>
                     <div className="text-white/80 group-hover:text-white text-sm font-medium transition-colors">+7(938)359-10-91</div>
                   </div>
                 </a>
@@ -71,7 +71,11 @@ export function Footer() {
                 </div>
                 <div>
                   <div className="text-white/40 text-xs mb-0.5">Режим работы</div>
-                  <div className="text-white/80 group-hover:text-white text-sm font-medium transition-colors">Ежедневно 8:00 - 20:00</div>
+                  <div className="text-white/80 group-hover:text-white text-sm font-medium transition-colors">
+                    Будни: 8:00 - 18:00<br/>
+                    Сб: 9:00 - 13:00<br/>
+                    Вс: выходной
+                  </div>
                 </div>
               </div>
             </li>

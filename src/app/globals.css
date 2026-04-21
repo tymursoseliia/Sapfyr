@@ -26,9 +26,9 @@
 
 @layer base {
   :root {
-    /* Premium dark aesthetic as default */
-    --background: 222 47% 4%;
-    --foreground: 210 40% 98%;
+    /* Premium light aesthetic as default */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 4%;
     --card: 222 47% 6%;
     --card-foreground: 210 40% 98%;
     --popover: 222 47% 4%;
