@@ -2,7 +2,7 @@
 
 ## Ваш токен бота уже настроен:
 ```
-8509211479:AAFY-3uNXTdFafiQmBF5wGOq1RlVexsWVY0
+8687971714:AAEcr_CbBT8CQbu3H1OcCWtO2qlV4On0Opk
 ```
 
 ## Как получить Chat ID:
