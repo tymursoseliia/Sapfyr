@@ -20,7 +20,7 @@ export function Header() {
       <div className="w-full max-w-screen-2xl px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <img src="/logonew.png" alt="Sapfyr" className="h-20 w-auto object-contain rounded-md shadow-sm group-hover:shadow-md transition-shadow" />
+          <img src="/photo_2026-04-21_12-30-15-removebg-preview.png" alt="Sapfyr" className="h-20 w-auto object-contain rounded-md shadow-sm group-hover:shadow-md transition-shadow" />
         </Link>
 
         {/* Navigation */}

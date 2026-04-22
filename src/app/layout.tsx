@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   keywords: "авто из европы, автомобили из европы, пригон авто, растаможка авто, Sapfyr",
   authors: [{ name: "Sapfyr" }],
   icons: {
-    icon: "/logonew.png",
-    shortcut: "/logonew.png",
-    apple: "/logonew.png",
+    icon: "/photo_2026-04-21_12-30-15-removebg-preview.png",
+    shortcut: "/photo_2026-04-21_12-30-15-removebg-preview.png",
+    apple: "/photo_2026-04-21_12-30-15-removebg-preview.png",
   },
   openGraph: {
     title: "Sapfyr - Авто из Европы с доставкой по РФ",
