@@ -4,7 +4,33 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
 export default function TeamPage() {
-  const teamMembers: { name: string; image: string }[] = [];
+  const teamMembers: { name: string; image: string }[] = [
+    { name: 'Андрей Смирнов', image: '/team/andrey_smirnov.jpg' },
+    { name: 'Ольга Макарова', image: '/team/olga_makarova.jpg' },
+    { name: 'Ковалёва Екатерина', image: '/team/kovaleva_ekaterina.jpg' },
+    { name: 'Марьенков Аркадий', image: '/team/maryenkov_arkadiy.jpg' },
+    { name: 'Андрей Олейник', image: '/team/andrey_oleynik.jpg' },
+    { name: 'Акимов Максим', image: '/team/akimov_maksim.jpg' },
+    { name: 'Шечков Андрей', image: '/team/shechkov_andrey.jpg' },
+    { name: 'Дмитрий Стебельков', image: '/team/dmitriy_stebelkov.jpg' },
+    { name: 'Алексей Карташов', image: '/team/aleksey_kartashov.jpg' },
+    { name: 'Глазунов Данил', image: '/team/glazunov_danil.jpg' },
+    { name: 'Голубкин Александр', image: '/team/golubkin_aleksandr.jpg' },
+    { name: 'Андрей Рублев', image: '/team/andrey_rublev.jpg' },
+    { name: 'Юлия Орлова', image: '/team/yuliya_orlova.jpg' },
+    { name: 'Юлия Смирнова', image: '/team/yuliya_smirnova.jpg' },
+    { name: 'Яна Зайцева', image: '/team/yana_zaytseva.jpg' },
+    { name: 'Никита Морозов', image: '/team/nikita_morozov.jpg' },
+    { name: 'Романов Руслан', image: '/team/romanov_ruslan.jpg' },
+    { name: 'Сечин Давид', image: '/team/sechin_david.jpg' },
+    { name: 'Краснова Татьяна', image: '/team/krasnova_tatyana.jpg' },
+    { name: 'Гаврилов Денис', image: '/team/gavrilov_denis.jpg' },
+    { name: 'Коршунов Антон', image: '/team/korshunov_anton.jpg' },
+    { name: 'Медведев Александр', image: '/team/medvedev_aleksandr.jpg' },
+    { name: 'Забара Максим Дмитревич', image: '/team/zabara_maksim.jpg' },
+    { name: 'Корев Александр Сергеевич', image: '/team/korev_aleksandr.jpg' },
+    { name: 'Власова Анастасия Олеговна', image: '/team/vlasova_anastasiya.jpg' }
+  ];
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
