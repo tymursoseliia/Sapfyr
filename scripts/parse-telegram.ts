@@ -18,7 +18,7 @@ function parseCars(html: string) {
   
   // Регулярные выражения для поиска сообщений
   // Ищем блоки tgme_widget_message_text
-  const messageRegex = /<div class="tgme_widget_message_text[^>]*>(.*?)<\/div>/gs;
+  const messageRegex = /<div class="tgme_widget_message_text[^>]*>([\s\S]*?)<\/div>/g;
   const urlRegex = /<a class="tgme_widget_message_date" href="(https:\/\/t\.me\/Euro_avto_tut\/(\d+))"/g;
   
   // К сожалению, регулярками парсить HTML сложно, используем более простой подход:
