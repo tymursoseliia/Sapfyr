@@ -1294,7 +1294,7 @@ function ClientReviewsSection() {
                     ))}
                   </div>
                 </div>
-                <div className="text-2xl lg:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+                <div className="text-2xl lg:text-3xl font-black text-gray-900 drop-shadow-sm">
                   {review.rating.toFixed(1)}
                 </div>
               </div>
