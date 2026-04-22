@@ -64,27 +64,9 @@ export default function TeamPage() {
         <div className="max-w-screen-2xl mx-auto relative z-10">
           {teamMembers.length > 0 ? (
             <>
-              {/* First member - centered */}
-              <div className="flex justify-center mb-16">
-                <div className="flex flex-col items-center glass-panel border-gray-200 rounded-3xl p-8 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] group w-full max-w-sm">
-                  <div className="w-64 h-64 rounded-full overflow-hidden mb-6 border-4 border-primary/20 group-hover:border-primary transition-colors duration-500 shadow-xl relative">
-                    <div className="absolute inset-0 rounded-full border border-primary/50 scale-105 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-700" />
-                    <img
-                      src={teamMembers[0].image}
-                      alt={teamMembers[0].name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 text-center">
-                    {teamMembers[0].name}
-                  </h3>
-                  <p className="text-primary mt-2 uppercase tracking-widest text-sm font-semibold">Руководитель</p>
-                </div>
-              </div>
-
-              {/* Rest of the team - 4 columns grid */}
-              <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                {teamMembers.slice(1).map((member, index) => (
+              {/* All team members in a 5-column grid */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+                {teamMembers.map((member, index) => (
                   <div key={index} className="flex flex-col items-center glass-panel border-gray-200 rounded-3xl p-6 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] group">
                     <div className="w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-gray-100 group-hover:border-primary/50 transition-colors duration-500 relative">
                       <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
