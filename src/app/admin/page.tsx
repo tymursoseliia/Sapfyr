@@ -33,6 +33,7 @@ export default function AdminPage() {
   const [images, setImages] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
   const [uploading, setUploading] = useState(false);
+  const [editingCarId, setEditingCarId] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Cars management state
@@ -320,6 +321,27 @@ export default function AdminPage() {
     }
   }
 
+  function handleEditCar(car: Car) {
+    setFormData({
+      brand: car.brand,
+      model: car.model,
+      year: car.year,
+      price: car.price.toString(),
+      mileage: car.mileage.toString(),
+      fuel_type: car.fuel_type,
+      transmission: car.transmission,
+      engine_volume: car.engine_volume ? car.engine_volume.toString() : '',
+      drive_type: car.drive_type || 'Полный',
+      description: car.description,
+      location: car.location,
+      status: car.status
+    });
+    setEditingCarId(car.id);
+    setImagePreviews(car.images || []);
+    setImages([]); // Сбрасываем новые файлы, при обновлении если файлы не выбраны - старые останутся
+    setActiveTab('cars');
+  }
+
   const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
     if (files.length === 0) return;
@@ -392,9 +414,13 @@ export default function AdminPage() {
         imageUrls.push(publicUrl);
       }
 
-      console.log('Все изображения загружены:', imageUrls);
+      // Если мы редактируем и не добавляли новые картинки, но удаляли старые - нужно сохранить оставшиеся
+      // В imagePreviews у нас лежат и старые URL, и blob URL от новых.
+      // Отфильтруем старые URL (начинаются с http)
+      const existingUrls = imagePreviews.filter(url => url.startsWith('http'));
+      const finalImageUrls = [...existingUrls, ...imageUrls];
 
-      // Insert car data
+      // Insert or update car data
       const carData = {
         brand: formData.brand,
         model: formData.model,
@@ -408,21 +434,33 @@ export default function AdminPage() {
         description: formData.description,
         location: formData.location,
         status: formData.status,
-        images: imageUrls
+        images: finalImageUrls
       };
 
-      console.log('Данные для вставки:', carData);
+      console.log('Данные для сохранения:', carData);
 
-      const { error: insertError } = await supabase
-        .from('cars')
-        .insert([carData]);
+      if (editingCarId) {
+        const { error: updateError } = await supabase
+          .from('cars')
+          .update(carData)
+          .eq('id', editingCarId);
 
-      if (insertError) {
-        console.error('Ошибка вставки данных:', insertError);
-        throw new Error(`Ошибка добавления в базу данных: ${insertError.message}`);
+        if (updateError) {
+          console.error('Ошибка обновления данных:', updateError);
+          throw new Error(`Ошибка обновления в базе данных: ${updateError.message}`);
+        }
+        alert('Автомобиль успешно обновлен!');
+      } else {
+        const { error: insertError } = await supabase
+          .from('cars')
+          .insert([carData]);
+
+        if (insertError) {
+          console.error('Ошибка вставки данных:', insertError);
+          throw new Error(`Ошибка добавления в базу данных: ${insertError.message}`);
+        }
+        alert('Автомобиль успешно добавлен!');
       }
-
-      alert('Автомобиль успешно добавлен!');
 
       // Reset form
       setFormData({
@@ -439,6 +477,7 @@ export default function AdminPage() {
         location: 'Европа',
         status: 'available'
       });
+      setEditingCarId(null);
       setImages([]);
       setImagePreviews([]);
     } catch (error: unknown) {
@@ -511,7 +550,7 @@ export default function AdminPage() {
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-4 mb-8">
-            <TabsTrigger value="cars">Добавить авто</TabsTrigger>
+            <TabsTrigger value="cars">{editingCarId ? 'Редактировать авто' : 'Добавить авто'}</TabsTrigger>
             <TabsTrigger value="manage">Управление авто</TabsTrigger>
             <TabsTrigger value="videos">Видео-отзывы</TabsTrigger>
             <TabsTrigger value="photo-reviews">Фото-отзывы</TabsTrigger>
@@ -733,8 +772,36 @@ export default function AdminPage() {
             disabled={uploading}
             className="w-full h-12 bg-[#0A7ABF] hover:bg-[#095A8F] text-lg"
           >
-            {uploading ? 'Загрузка...' : 'Добавить автомобиль'}
+            {uploading ? 'Загрузка...' : (editingCarId ? 'Сохранить изменения' : 'Добавить автомобиль')}
           </Button>
+          {editingCarId && (
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full h-12 mt-2"
+              onClick={() => {
+                setEditingCarId(null);
+                setFormData({
+                  brand: '',
+                  model: '',
+                  year: new Date().getFullYear(),
+                  price: '',
+                  mileage: '',
+                  fuel_type: 'Бензин',
+                  transmission: 'Автомат',
+                  engine_volume: '',
+                  drive_type: 'Полный',
+                  description: '',
+                  location: 'Европа',
+                  status: 'available'
+                });
+                setImages([]);
+                setImagePreviews([]);
+              }}
+            >
+              Отменить редактирование
+            </Button>
+          )}
         </form>
           </TabsContent>
 
@@ -820,10 +887,22 @@ export default function AdminPage() {
                             </div>
 
                             <Button
+                              onClick={() => handleEditCar(car)}
+                              size="sm"
+                              variant="outline"
+                              className="ml-auto text-blue-600 border-blue-200 hover:bg-blue-50"
+                            >
+                              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                              </svg>
+                              Редактировать
+                            </Button>
+
+                            <Button
                               onClick={() => handleDeleteCar(car.id)}
                               size="sm"
                               variant="destructive"
-                              className="ml-auto"
+                              className="ml-2"
                             >
                               <Trash2 className="w-4 h-4 mr-1" />
                               Удалить

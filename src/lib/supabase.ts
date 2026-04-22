@@ -21,6 +21,8 @@ export type Car = {
   images: string[];
   status: 'available' | 'sold' | 'reserved';
   location: string;
+  telegram_url?: string;
+  telegram_id?: string;
 };
 
 export type VideoReview = {

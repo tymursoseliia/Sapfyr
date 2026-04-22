@@ -405,7 +405,7 @@ export default function Home() {
                   <img
                     src="https://images.pexels.com/photos/5668774/pexels-photo-5668774.jpeg?auto=compress&cs=tinysrgb&w=800"
                     alt="Безопасность"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-background to-transparent md:block hidden" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent md:hidden block" />
@@ -420,7 +420,7 @@ export default function Home() {
                   <img
                     src="https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=800"
                     alt="Европейское качество"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-l from-background to-transparent md:block hidden" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent md:hidden block" />
@@ -462,7 +462,7 @@ export default function Home() {
                   <img
                     src="https://images.pexels.com/photos/4489728/pexels-photo-4489728.jpeg?auto=compress&cs=tinysrgb&w=800"
                     alt="Доставка"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-background to-transparent md:block hidden" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent md:hidden block" />
@@ -477,7 +477,7 @@ export default function Home() {
                   <img
                     src="https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=800"
                     alt="Автомобиль премиум класса"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-l from-background to-transparent md:block hidden" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent md:hidden block" />
@@ -702,12 +702,13 @@ function HowToGetCarSection() {
     async function fetchReviews() {
       const { data } = await supabase.from('photo_reviews').select('*').order('created_at', { ascending: false });
       if (data && data.length > 0) {
-        setActiveReviews(data.map(r => ({
+        const fetchedReviews = data.map(r => ({
           image: r.image_url,
           name: r.name,
           text: r.text,
           rating: r.rating
-        })));
+        }));
+        setActiveReviews([...fetchedReviews, ...reviews]);
       }
     }
     fetchReviews();
@@ -754,7 +755,7 @@ function HowToGetCarSection() {
                       alt={review.name}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent flex flex-col justify-end p-8">
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent flex flex-col justify-end p-8">
                       <div className="glass-panel border border-gray-200 rounded-2xl p-6 backdrop-blur-md transform translate-y-0 opacity-100 transition-all duration-500 delay-200 shadow-2xl">
                         
                         <div className="flex items-center justify-between gap-2 mb-4">

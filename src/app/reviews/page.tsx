@@ -8,24 +8,33 @@ import { Footer } from '@/components/Footer';
 
 export default function ReviewsPage() {
   const [videoReviews, setVideoReviews] = useState<VideoReview[]>([]);
+  const [photoReviews, setPhotoReviews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [contactDialogOpen, setContactDialogOpen] = useState(false);
 
   useEffect(() => {
-    fetchVideoReviews();
+    fetchReviews();
   }, []);
 
-  async function fetchVideoReviews() {
+  async function fetchReviews() {
     try {
-      const { data, error } = await supabase
+      const { data: videoData, error: videoError } = await supabase
         .from('video_reviews')
         .select('*')
         .order('created_at', { ascending: false });
 
-      if (error) throw error;
-      setVideoReviews(data || []);
+      if (videoError) throw videoError;
+      setVideoReviews(videoData || []);
+
+      const { data: photoData, error: photoError } = await supabase
+        .from('photo_reviews')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (photoError) throw photoError;
+      setPhotoReviews(photoData || []);
     } catch (error) {
-      console.error('Error fetching video reviews:', error);
+      console.error('Error fetching reviews:', error);
     } finally {
       setLoading(false);
     }
@@ -285,7 +294,7 @@ export default function ReviewsPage() {
             className="flex gap-6 overflow-x-auto scrollbar-hide pb-8 px-4 -mx-4 items-stretch"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {textReviews.map((review, index) => (
+            {[...photoReviews.map(r => ({ name: r.name, text: r.text, carImage: r.image_url, platform: 'yandex', rating: r.rating })), ...textReviews].map((review, index) => (
               <div
                 key={index}
                 className="flex-shrink-0 w-80 lg:w-96 glass-panel border-gray-200 rounded-2xl flex flex-col hover:border-primary/30 transition-colors duration-300 p-6 shadow-xl"
