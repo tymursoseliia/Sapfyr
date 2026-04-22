@@ -710,6 +710,7 @@ function HowToGetCarSection() {
         }));
         setActiveReviews([...fetchedReviews, ...reviews]);
       }
+    }
     fetchReviews();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
