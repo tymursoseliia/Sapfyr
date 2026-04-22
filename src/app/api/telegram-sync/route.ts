@@ -25,7 +25,7 @@ function parseCars(html: string) {
     const telegramUrl = `https://t.me/Euro_avto_tut/${telegramId}`;
 
     // Получаем текст
-    const textMatch = block.match(/<div class="tgme_widget_message_text[^>]*>(.*?)<\/div>/s);
+    const textMatch = block.match(/<div class="tgme_widget_message_text[^>]*>([\s\S]*?)<\/div>/);
     if (!textMatch) continue;
     
     // Убираем HTML теги
