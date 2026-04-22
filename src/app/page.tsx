@@ -567,12 +567,11 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Background Image that shows through gradient */}
               <div className="absolute inset-0 lg:relative h-full w-full z-[-1] lg:z-0 bg-background">
                 <img
                   src="/Gemini_Generated_Image_gs1vi0gs1vi0gs1v.jpeg"
                   alt="Premium SUV"
-                  className="w-full h-full object-cover lg:object-right object-center opacity-10"
+                  className="w-full h-full object-cover lg:object-right object-center"
                 />
               </div>
             </div>
@@ -1269,7 +1268,6 @@ function ClientReviewsSection() {
               {/* Car image */}
               <div className="px-6 md:px-8">
                 <div className="rounded-xl overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10" />
                   <img
                     src={review.carImage}
                     alt={review.name}
