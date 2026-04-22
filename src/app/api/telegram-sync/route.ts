@@ -29,7 +29,7 @@ function parseCars(html: string) {
     if (!textMatch) continue;
     
     // Убираем HTML теги
-    let rawText = textMatch[1].replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, '').trim();
+    const rawText = textMatch[1].replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, '').trim();
     
     // Пропускаем отзывы
     if (rawText.toLowerCase().includes('отзыв') && !rawText.toLowerCase().includes('год')) {
@@ -124,8 +124,8 @@ export async function GET(request: Request) {
         message: `Парсинг завершен. Найдено машин: ${cars.length}, добавлено новых: ${addedCount}` 
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Ошибка синхронизации Telegram:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: error instanceof Error ? error.message : 'Unknown error' }, { status: 500 });
   }
 }

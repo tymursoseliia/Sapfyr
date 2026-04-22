@@ -8,6 +8,7 @@ import { Footer } from '@/components/Footer';
 
 export default function ReviewsPage() {
   const [videoReviews, setVideoReviews] = useState<VideoReview[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [photoReviews, setPhotoReviews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [contactDialogOpen, setContactDialogOpen] = useState(false);
