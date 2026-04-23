@@ -30,6 +30,22 @@ export async function GET(request: Request) {
   return NextResponse.json({ status: 'Webhook API is active. Use ?setup=true to register.' });
 }
 
+// Функция для отправки отладочных сообщений админу
+async function sendDebugToAdmin(message: string) {
+  const botToken = process.env.TELEGRAM_PARSER_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+  if (!botToken || !chatId) return;
+  try {
+    await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: chatId, text: `🔧 [Вебхук Дебаг]\n${message}` })
+    });
+  } catch (e) {
+    console.error('Failed to send debug message', e);
+  }
+}
+
 // Сюда Telegram будет присылать обновления в реальном времени
 export async function POST(request: Request) {
   try {
@@ -65,13 +81,14 @@ export async function POST(request: Request) {
 
     // Парсим текст (более гибкие регулярки)
     const yearMatch = text.match(/(?:Год|Рік)[^\d]*(\d{4})/i);
-    const priceMatch = text.match(/(?:Цена|Ціна|Price)[^\d]*([\d\s,.]+)[$€]/i) || text.match(/(?:Цена|Ціна|Price)[^\d]*([\d\s,.]+)\s*(?:usd|евро|euro)/i);
+    const priceMatch = text.match(/(?:Цена|Ціна|Price)[^\d]*([\d\s,.]+)[$€₽]/i) || text.match(/(?:Цена|Ціна|Price)[^\d]*([\d\s,.]+)\s*(?:usd|евро|euro|руб|rub)/i);
     const mileageMatch = text.match(/(?:Пробег|Пробіг)[^\d]*([\d\s]+)(?:км|тыс|km)/i);
     const fuelMatch = text.match(/(?:Топливо|Паливо)[\s:-]*([^\n]+)/i);
     const boxMatch = text.match(/(?:Коробка|Трансмиссия|Кпп)[\s:-]*([^\n]+)/i);
 
     // Если нет года или цены, это не объявление о машине
     if (!yearMatch || !priceMatch) {
+      await sendDebugToAdmin(`Пропущен пост (нет года или цены).\n\nНашел год: ${yearMatch ? 'ДА' : 'НЕТ'}\nНашел цену: ${priceMatch ? 'ДА' : 'НЕТ'}\n\nТекст:\n${text}`);
       return NextResponse.json({ status: 'ignored', reason: 'no year or price', debug_text: text });
     }
 
@@ -120,13 +137,22 @@ export async function POST(request: Request) {
                 .getPublicUrl(fileName);
               
               finalImageUrl = publicUrlData.publicUrl;
+              await sendDebugToAdmin(`Успешно загружено фото в Supabase: ${finalImageUrl}`);
            } else {
               console.error('Ошибка загрузки фото в Supabase Storage:', uploadError);
+              await sendDebugToAdmin(`Ошибка загрузки фото в Supabase Storage:\n${JSON.stringify(uploadError)}`);
            }
+        } else {
+           await sendDebugToAdmin(`Ошибка получения файла от Telegram:\n${JSON.stringify(fileData)}`);
         }
-      } catch (e) {
+      } catch (e: any) {
         console.error('Ошибка получения/скачивания фото:', e);
+        await sendDebugToAdmin(`Ошибка скачивания фото (catch):\n${e.message}`);
       }
+    } else if (!botToken) {
+       await sendDebugToAdmin(`Ошибка: TELEGRAM_PARSER_BOT_TOKEN не задан!`);
+    } else {
+       await sendDebugToAdmin(`Предупреждение: В посте нет фотографий.`);
     }
     
     const images = finalImageUrl ? [finalImageUrl] : [];
@@ -161,13 +187,19 @@ export async function POST(request: Request) {
       const { error } = await supabaseAdmin.from('cars').insert(carData);
       if (error) {
         console.error('Webhook insert error:', error);
+        await sendDebugToAdmin(`Ошибка добавления машины в базу данных cars:\n${JSON.stringify(error)}`);
         return NextResponse.json({ error: error.message }, { status: 500 });
+      } else {
+        await sendDebugToAdmin(`✅ Машина успешно добавлена в базу!\nБренд: ${brand}\nМодель: ${model}\nЦена: ${priceRaw}`);
       }
+    } else {
+       await sendDebugToAdmin(`⚠️ Машина с telegram_id ${messageId} уже существует в базе, пропускаем.`);
     }
 
     return NextResponse.json({ success: true, message: 'Car added from webhook' });
   } catch (error: unknown) {
     console.error('Webhook error:', error);
+    await sendDebugToAdmin(`Критическая ошибка вебхука (catch):\n${error instanceof Error ? error.message : String(error)}`);
     return NextResponse.json({ error: error instanceof Error ? error.message : 'Unknown error' }, { status: 500 });
   }
 }
