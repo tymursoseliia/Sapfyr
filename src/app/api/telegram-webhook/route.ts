@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@supabase/supabase-js';
 
 // Автоматическая установка вебхука
 export async function GET(request: Request) {
@@ -33,6 +33,10 @@ export async function GET(request: Request) {
 // Сюда Telegram будет присылать обновления в реальном времени
 export async function POST(request: Request) {
   try {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+    const supabaseAdmin = createClient(supabaseUrl, supabaseKey);
+
     const body = await request.json();
     
     // Проверяем, что это сообщение из канала (или отредактированное)
@@ -101,8 +105,8 @@ export async function POST(request: Request) {
            // Генерируем уникальное имя файла
            const fileName = `tg_${Date.now()}_${Math.random().toString(36).substring(7)}.jpg`;
            
-           // Загружаем в бакет car-photos
-           const { data: uploadData, error: uploadError } = await supabase.storage
+           // Загружаем в бакет car-images
+           const { data: uploadData, error: uploadError } = await supabaseAdmin.storage
              .from('car-images')
              .upload(fileName, arrayBuffer, { 
                 contentType: 'image/jpeg',
@@ -110,7 +114,7 @@ export async function POST(request: Request) {
              });
              
            if (uploadData) {
-              const { data: publicUrlData } = supabase.storage
+              const { data: publicUrlData } = supabaseAdmin.storage
                 .from('car-images')
                 .getPublicUrl(fileName);
               
@@ -145,7 +149,7 @@ export async function POST(request: Request) {
     };
 
     // Проверяем, нет ли уже машины в базе
-    const { data: existing } = await supabase
+    const { data: existing } = await supabaseAdmin
       .from('cars')
       .select('id')
       .eq('telegram_id', messageId)
@@ -153,7 +157,7 @@ export async function POST(request: Request) {
 
     if (!existing) {
       // Добавляем
-      const { error } = await supabase.from('cars').insert(carData);
+      const { error } = await supabaseAdmin.from('cars').insert(carData);
       if (error) {
         console.error('Webhook insert error:', error);
         return NextResponse.json({ error: error.message }, { status: 500 });
