@@ -37,9 +37,9 @@ function parseCars(html: string) {
     }
     
     // Парсим поля
-    const yearMatch = rawText.match(/(?:Год|Рік)[\s:-]*(\d{4})/i);
-    const priceMatch = rawText.match(/(?:Цена|Ціна)[\s:-]*([\d\s,.]+)[$€]/i);
-    const mileageMatch = rawText.match(/(?:Пробег|Пробіг)[\s:-]*([\d\s]+)(?:км|тыс)/i);
+    const yearMatch = rawText.match(/(?:Год|Рік)[^\d]*(\d{4})/i);
+    const priceMatch = rawText.match(/(?:Цена|Ціна|Price)[^\d]*([\d\s,.]+)[$€]/i) || rawText.match(/(?:Цена|Ціна|Price)[^\d]*([\d\s,.]+)\s*(?:usd|евро|euro)/i);
+    const mileageMatch = rawText.match(/(?:Пробег|Пробіг)[^\d]*([\d\s]+)(?:км|тыс|km)/i);
     const fuelMatch = rawText.match(/(?:Топливо|Паливо)[\s:-]*([^\n]+)/i);
     const boxMatch = rawText.match(/(?:Коробка|Трансмиссия|Кпп)[\s:-]*([^\n]+)/i);
     
