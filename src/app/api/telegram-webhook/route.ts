@@ -81,10 +81,12 @@ export async function POST(request: Request) {
 
     // Парсим текст (более гибкие регулярки)
     const yearMatch = text.match(/(?:Год|Рік)[^\d]*(\d{4})/i);
-    const priceMatch = text.match(/(?:Цена|Ціна|Price)[^\d]*([\d\s,.]+)[$€₽]/i) || text.match(/(?:Цена|Ціна|Price)[^\d]*([\d\s,.]+)\s*(?:usd|евро|euro|руб|rub)/i);
-    const mileageMatch = text.match(/(?:Пробег|Пробіг)[^\d]*([\d\s]+)(?:км|тыс|km)/i);
-    const fuelMatch = text.match(/(?:Топливо|Паливо)[\s:-]*([^\n]+)/i);
+    const priceMatch = text.match(/(?:Цена|Ціна|Price)[^\d]*([\d\s,.]+)(?:[$€₽]|usd|евро|euro|руб|rub|р\.|р)?/i);
+    const mileageMatch = text.match(/(?:Пробег|Пробіг)[^\d]*([\d\s,.]+)/i);
+    const fuelMatch = text.match(/(?:Топливо|Паливо)[\s:-]*([^\n]+)/i) || text.match(/(?:Двигатель|Двигун)[\s:-]*([^\n,]+)/i);
+    const engineMatch = text.match(/(?:Двигатель|Двигун)[^\d]*([\d.,]+)\s*(?:л|l)/i);
     const boxMatch = text.match(/(?:Коробка|Трансмиссия|Кпп)[\s:-]*([^\n]+)/i);
+    const driveMatch = text.match(/(?:Привод|Привід)[\s:-]*([^\n]+)/i);
 
     // Если нет года или цены, это не объявление о машине
     if (!yearMatch || !priceMatch) {
@@ -93,13 +95,14 @@ export async function POST(request: Request) {
     }
 
     const firstLine = text.split('\n')[0].replace(/[🚗🚘]/g, '').trim();
-    const brandModel = firstLine.length < 50 ? firstLine : 'Неизвестно';
+    const brandModel = firstLine.length < 50 && firstLine.length > 2 ? firstLine : 'Неизвестно';
     const brandParts = brandModel.split(' ');
     const brand = brandParts[0] || 'Unknown';
     const model = brandParts.slice(1).join(' ') || brandModel;
 
-    const priceRaw = priceMatch[1].replace(/\s/g, '').replace(',', '.');
-    const mileageRaw = mileageMatch ? mileageMatch[1].replace(/\s/g, '') : '0';
+    // Убираем все пробелы и точки/запятые из цены и пробега, чтобы получилось чистое число
+    const priceRaw = priceMatch[1].replace(/[^\d]/g, '');
+    const mileageRaw = mileageMatch ? mileageMatch[1].replace(/[^\d]/g, '') : '0';
 
     let finalImageUrl = '';
     const botToken = process.env.TELEGRAM_PARSER_BOT_TOKEN;
@@ -169,6 +172,8 @@ export async function POST(request: Request) {
       mileage: parseInt(mileageRaw, 10),
       fuel_type: fuelMatch ? fuelMatch[1].trim() : 'Не указано',
       transmission: boxMatch ? boxMatch[1].trim() : 'Не указано',
+      engine_volume: engineMatch ? parseFloat(engineMatch[1].replace(',', '.')) : null,
+      drive_type: driveMatch ? driveMatch[1].trim() : 'Полный',
       description: text,
       images: images, // Используем массив фото, который спарсили выше
       status: 'available',
