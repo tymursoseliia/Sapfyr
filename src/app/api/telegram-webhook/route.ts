@@ -23,8 +23,8 @@ export async function GET(request: Request) {
         webhookUrl, 
         telegramResponse: data 
       });
-    } catch (e: any) {
-      return NextResponse.json({ error: 'Failed to set webhook', details: e.message }, { status: 500 });
+    } catch (e: unknown) {
+      return NextResponse.json({ error: 'Failed to set webhook', details: e instanceof Error ? e.message : String(e) }, { status: 500 });
     }
   }
   return NextResponse.json({ status: 'Webhook API is active. Use ?setup=true to register.' });
