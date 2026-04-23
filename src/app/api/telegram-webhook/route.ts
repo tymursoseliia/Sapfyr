@@ -1,6 +1,35 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 
+// Автоматическая установка вебхука
+export async function GET(request: Request) {
+  const url = new URL(request.url);
+  if (url.searchParams.get('setup') === 'true') {
+    const botToken = process.env.TELEGRAM_PARSER_BOT_TOKEN;
+    if (!botToken) {
+      return NextResponse.json({ error: 'Missing TELEGRAM_PARSER_BOT_TOKEN' }, { status: 400 });
+    }
+    
+    const host = request.headers.get('x-forwarded-host') || request.headers.get('host') || 'sapffir.ru';
+    const protocol = host.includes('localhost') ? 'http' : 'https';
+    const webhookUrl = `${protocol}://${host}/api/telegram-webhook`;
+    
+    try {
+      const tgRes = await fetch(`https://api.telegram.org/bot${botToken}/setWebhook?url=${webhookUrl}`);
+      const data = await tgRes.json();
+      return NextResponse.json({ 
+        success: true, 
+        message: 'Вебхук успешно установлен!', 
+        webhookUrl, 
+        telegramResponse: data 
+      });
+    } catch (e: any) {
+      return NextResponse.json({ error: 'Failed to set webhook', details: e.message }, { status: 500 });
+    }
+  }
+  return NextResponse.json({ status: 'Webhook API is active. Use ?setup=true to register.' });
+}
+
 // Сюда Telegram будет присылать обновления в реальном времени
 export async function POST(request: Request) {
   try {
@@ -51,26 +80,51 @@ export async function POST(request: Request) {
     const priceRaw = priceMatch[1].replace(/\s/g, '').replace(',', '.');
     const mileageRaw = mileageMatch ? mileageMatch[1].replace(/\s/g, '') : '0';
 
-    const images = [];
-    if (channelPost.photo && channelPost.photo.length > 0) {
+    let finalImageUrl = '';
+    const botToken = process.env.TELEGRAM_PARSER_BOT_TOKEN;
+
+    if (channelPost.photo && channelPost.photo.length > 0 && botToken) {
       // Берем самое большое фото (последнее в массиве)
       const fileId = channelPost.photo[channelPost.photo.length - 1].file_id;
       
-      const botToken = process.env.TELEGRAM_PARSER_BOT_TOKEN;
-      if (botToken) {
-        // Получаем путь к файлу
-        try {
-          const fileRes = await fetch(`https://api.telegram.org/bot${botToken}/getFile?file_id=${fileId}`);
-          const fileData = await fileRes.json();
-          if (fileData.ok && fileData.result.file_path) {
-             const imageUrl = `https://api.telegram.org/file/bot${botToken}/${fileData.result.file_path}`;
-             images.push(imageUrl);
-          }
-        } catch (e) {
-          console.error('Ошибка получения фото:', e);
+      try {
+        const fileRes = await fetch(`https://api.telegram.org/bot${botToken}/getFile?file_id=${fileId}`);
+        const fileData = await fileRes.json();
+        
+        if (fileData.ok && fileData.result.file_path) {
+           const fileUrl = `https://api.telegram.org/file/bot${botToken}/${fileData.result.file_path}`;
+           
+           // Скачиваем фото в память
+           const imageRes = await fetch(fileUrl);
+           const arrayBuffer = await imageRes.arrayBuffer();
+           
+           // Генерируем уникальное имя файла
+           const fileName = `tg_${Date.now()}_${Math.random().toString(36).substring(7)}.jpg`;
+           
+           // Загружаем в бакет car-photos
+           const { data: uploadData, error: uploadError } = await supabase.storage
+             .from('car-photos')
+             .upload(fileName, arrayBuffer, { 
+                contentType: 'image/jpeg',
+                upsert: false
+             });
+             
+           if (uploadData) {
+              const { data: publicUrlData } = supabase.storage
+                .from('car-photos')
+                .getPublicUrl(fileName);
+              
+              finalImageUrl = publicUrlData.publicUrl;
+           } else {
+              console.error('Ошибка загрузки фото в Supabase Storage:', uploadError);
+           }
         }
+      } catch (e) {
+        console.error('Ошибка получения/скачивания фото:', e);
       }
     }
+    
+    const images = finalImageUrl ? [finalImageUrl] : [];
 
     const telegramUrl = `https://t.me/Euro_avto_tut/${messageId}`;
 

@@ -1,0 +1,15 @@
+{
+  "name": "telegram-car-parser",
+  "version": "1.0.0",
+  "description": "Telegram car parsing bot extracted from volga-avto",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "@supabase/supabase-js": "^2.42.0",
+    "dotenv": "^16.4.5"
+  }
+}
