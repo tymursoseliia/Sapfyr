@@ -297,7 +297,7 @@ export default function AboutPage() {
                 ПОД КЛЮЧ
               </h3>
               <p className="text-xs text-gray-600 mb-4">
-                <strong className="text-gray-900">Таможенное оформление,</strong> постановка на учёт, оформление на физическое или юридическое лицо.
+                <strong className="text-gray-900">Таможенное оформление,</strong> постановка на учёт, оформление на физическое лицо.
               </p>
               <p className="text-xs text-primary/80 italic mt-auto pt-4 border-t border-gray-200">
                 Огромный опыт работ, позволяет нам, сделать всё качественно и быстро.

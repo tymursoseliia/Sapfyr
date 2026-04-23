@@ -7,13 +7,13 @@ export default function InstallmentPage() {
   const benefits = [
     {
       icon: <CreditCard className="w-8 h-8 text-[#0088cc]" />,
-      title: 'Взнос от 10%',
-      description: 'Минимальный первоначальный взнос для оформления рассрочки.'
+      title: 'Работаем без взноса',
+      description: 'Возможно оформление рассрочки без первоначального взноса.'
     },
     {
       icon: <Clock className="w-8 h-8 text-[#0088cc]" />,
-      title: 'Срок до 7 лет',
-      description: 'Удобные сроки погашения от 6 до 84 месяцев на ваш выбор.'
+      title: 'Срок до 3 лет',
+      description: 'Удобные сроки погашения от 6 до 36 месяцев на ваш выбор.'
     },
     {
       icon: <FileText className="w-8 h-8 text-[#0088cc]" />,
