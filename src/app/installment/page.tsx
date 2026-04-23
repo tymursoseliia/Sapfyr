@@ -70,7 +70,7 @@ export default function InstallmentPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a 
-              href="https://t.me/LTSPRigon"
+              href="https://t.me/OOO_Sapphire"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-primary hover:bg-primary/90 text-gray-900 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] w-full sm:w-auto"
@@ -123,7 +123,7 @@ export default function InstallmentPage() {
                 Мы берем всю бюрократию на себя, чтобы вы могли просто выбрать автомобиль.
               </p>
               <a 
-                href="https://t.me/LTSPRigon"
+                href="https://t.me/OOO_Sapphire"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-900 border border-gray-300 rounded-xl font-semibold inline-flex items-center gap-2 transition-all"
@@ -162,7 +162,7 @@ export default function InstallmentPage() {
           </p>
           <div className="flex justify-center gap-4 relative z-10">
             <a 
-              href="https://t.me/LTSPRigon"
+              href="https://t.me/OOO_Sapphire"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-[#0088cc] hover:bg-[#0088cc]/90 text-gray-900 rounded-xl font-bold flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(0,136,204,0.3)] hover:scale-105"

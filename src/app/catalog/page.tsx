@@ -111,7 +111,7 @@ export default function CatalogPage() {
 
                     <div className="mt-auto pt-4 border-t border-gray-100">
                       <Link 
-                        href="https://t.me/sapfyr_auto" 
+                        href="https://t.me/OOO_Sapphire" 
                         target="_blank"
                         className="block w-full py-3 text-center bg-gray-100 hover:bg-primary hover:text-white text-gray-900 font-bold rounded-xl transition-all duration-300"
                       >

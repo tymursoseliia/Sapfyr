@@ -19,7 +19,7 @@ export function Footer() {
               Мы — ваш надёжный партнёр по покупке и доставке лучших автомобилей из Европы. Премиальный сервис без компромиссов.
             </p>
             <div className="flex items-center gap-4">
-              <a href="https://t.me/LTSPRigon" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border border-transparent hover:border-[#0088cc] hover:bg-[#0088cc]/10 hover:text-[#0088cc] text-gray-600 transition-all">
+              <a href="https://t.me/OOO_Sapphire" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border border-transparent hover:border-[#0088cc] hover:bg-[#0088cc]/10 hover:text-[#0088cc] text-gray-600 transition-all">
                 <Send className="w-4 h-4 ml-0.5" />
               </a>
               <a href="https://max.ru/u/f9LHodD0cOLd_wpVLKdoX-6cYVQPnzVsKXfd4Yyv1T741m3KQNI63EzYpvY" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border border-transparent hover:border-[#0088cc] hover:bg-[#0088cc]/10 hover:text-[#0088cc] text-gray-600 transition-all">
