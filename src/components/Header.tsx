@@ -27,6 +27,7 @@ export function Header() {
         <nav className="hidden md:flex xl:gap-8 gap-5 items-center">
           {[
             { name: 'Главная', href: '/' },
+            { name: 'Каталог', href: '/catalog' },
             { name: 'О нас', href: '/about' },
             { name: 'Рассрочка', href: '/installment' },
             { name: 'Команда', href: '/team' },

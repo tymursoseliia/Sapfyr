@@ -13,7 +13,7 @@ import {
 import { useState, useEffect, useRef } from 'react';
 import { Send, MessageCircle, ChevronRight, Shield, Globe, Clock, CheckCircle2, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
-import { supabase, type VideoReview } from '@/lib/supabase';
+import { supabase, type VideoReview, type Car } from '@/lib/supabase';
 import { ContactDialog } from '@/components/ContactDialog';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -580,6 +580,7 @@ export default function Home() {
       </section>
 
       {/* Dynamic Sections */}
+      <LatestCarsSection />
       <HowToGetCarSection />
       <ClientReviewsSection />
       <FAQSection />
@@ -589,6 +590,92 @@ export default function Home() {
       <Footer />
       <ContactDialog open={contactDialogOpen} onOpenChange={setContactDialogOpen} />
     </div>
+  );
+}
+
+function LatestCarsSection() {
+  const [cars, setCars] = useState<Car[]>([]);
+
+  useEffect(() => {
+    async function fetchCars() {
+      const { data } = await supabase
+        .from('cars')
+        .select('*')
+        .eq('status', 'available')
+        .order('created_at', { ascending: false })
+        .limit(3);
+      if (data) setCars(data);
+    }
+    fetchCars();
+  }, []);
+
+  if (cars.length === 0) return null;
+
+  return (
+    <section className="py-24 px-8 bg-background relative overflow-hidden border-b border-gray-100">
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none" />
+      
+      <div className="max-w-screen-2xl mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
+          <div className="text-center md:text-left">
+            <span className="text-primary font-bold tracking-widest text-sm uppercase mb-3 block drop-shadow-md">Новые поступления</span>
+            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 leading-tight">
+              КАТАЛОГ АВТО <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">В НАЛИЧИИ</span>
+            </h2>
+          </div>
+          <Link 
+            href="/catalog"
+            className="flex items-center gap-2 bg-gray-100 hover:bg-primary/10 text-gray-900 px-6 py-3 rounded-full font-bold transition-all border border-gray-200 hover:border-primary/30 group"
+          >
+            Смотреть все
+            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-primary" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {cars.map((car) => (
+            <div key={car.id} className="flex flex-col glass-panel border border-gray-200 rounded-3xl overflow-hidden hover:border-primary/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] group">
+              <div className="h-56 overflow-hidden relative bg-gray-100">
+                {car.images && car.images.length > 0 ? (
+                  <img
+                    src={car.images[0]}
+                    alt={`${car.brand} ${car.model}`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                    Нет фото
+                  </div>
+                )}
+                <div className="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                  {car.year} год
+                </div>
+              </div>
+
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {car.brand} {car.model}
+                </h3>
+                
+                <div className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500 mb-6">
+                  {car.price.toLocaleString('ru-RU')} ₽
+                </div>
+
+                <div className="mt-auto pt-4 border-t border-gray-100">
+                  <Link 
+                    href="/catalog" 
+                    className="block w-full py-3 text-center bg-gray-100 hover:bg-primary hover:text-white text-gray-900 font-bold rounded-xl transition-all duration-300"
+                  >
+                    Подробнее
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
