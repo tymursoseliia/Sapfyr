@@ -103,7 +103,7 @@ export async function POST(request: Request) {
            
            // Загружаем в бакет car-photos
            const { data: uploadData, error: uploadError } = await supabase.storage
-             .from('car-photos')
+             .from('car-images')
              .upload(fileName, arrayBuffer, { 
                 contentType: 'image/jpeg',
                 upsert: false
@@ -111,7 +111,7 @@ export async function POST(request: Request) {
              
            if (uploadData) {
               const { data: publicUrlData } = supabase.storage
-                .from('car-photos')
+                .from('car-images')
                 .getPublicUrl(fileName);
               
               finalImageUrl = publicUrlData.publicUrl;
