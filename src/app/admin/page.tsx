@@ -429,6 +429,8 @@ export default function AdminPage() {
         mileage: parseInt(formData.mileage),
         fuel_type: formData.fuel_type,
         transmission: formData.transmission,
+        engine_volume: formData.engine_volume ? parseFloat(formData.engine_volume) : null,
+        drive_type: formData.drive_type,
         description: formData.description,
         location: formData.location,
         status: formData.status,
