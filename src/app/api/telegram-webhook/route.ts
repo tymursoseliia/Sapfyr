@@ -101,6 +101,7 @@ export async function POST(request: Request) {
            // Скачиваем фото в память
            const imageRes = await fetch(fileUrl);
            const arrayBuffer = await imageRes.arrayBuffer();
+           const fileBuffer = Buffer.from(arrayBuffer);
            
            // Генерируем уникальное имя файла
            const fileName = `tg_${Date.now()}_${Math.random().toString(36).substring(7)}.jpg`;
@@ -108,7 +109,7 @@ export async function POST(request: Request) {
            // Загружаем в бакет car-images
            const { data: uploadData, error: uploadError } = await supabaseAdmin.storage
              .from('car-images')
-             .upload(fileName, arrayBuffer, { 
+             .upload(fileName, fileBuffer, { 
                 contentType: 'image/jpeg',
                 upsert: false
              });
