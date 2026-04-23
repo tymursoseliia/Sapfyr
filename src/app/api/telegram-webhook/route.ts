@@ -86,7 +86,7 @@ export async function POST(request: Request) {
       fuel_type: fuelMatch ? fuelMatch[1].trim() : 'Не указано',
       transmission: boxMatch ? boxMatch[1].trim() : 'Не указано',
       description: text,
-      images: [], // Для фото нужен токен бота, чтобы выкачать их
+      images: images, // Используем массив фото, который спарсили выше
       status: 'available',
       location: 'Европа',
     };
