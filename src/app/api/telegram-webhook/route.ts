@@ -56,18 +56,26 @@ export async function POST(request: Request) {
     const body = await request.json();
     
     // Проверяем, что это сообщение из канала (или отредактированное)
-    const channelPost = body.channel_post || body.edited_channel_post;
+    const channelPost = body.channel_post || body.edited_channel_post || body.message;
     if (!channelPost) {
-      return NextResponse.json({ status: 'ignored', reason: 'not a channel post' });
+      return NextResponse.json({ status: 'ignored', reason: 'not a message or channel post' });
     }
 
-    // Проверяем, из нужного ли канала пришло сообщение
-    const chatUsername = channelPost.chat?.username; // 'Euro_avto_tut'
-    if (chatUsername && chatUsername.toLowerCase() !== 'euro_avto_tut') {
+    // Проверяем, из нужного ли канала пришло сообщение (или переслано из него)
+    const chatUsername = channelPost.chat?.username?.toLowerCase();
+    const forwardUsername = channelPost.forward_origin?.chat?.username?.toLowerCase() || channelPost.forward_from_chat?.username?.toLowerCase();
+    
+    const isFromOurChannel = chatUsername === 'euro_avto_tut' || forwardUsername === 'euro_avto_tut';
+    
+    // Временно разрешим парсить вообще любые посты, если они присланы админом в бота напрямую, 
+    // чтобы можно было пересылать посты откуда угодно
+    // Но лучше оставить жесткую проверку:
+    if (!isFromOurChannel) {
        return NextResponse.json({ status: 'ignored', reason: 'wrong channel' });
     }
 
-    const messageId = channelPost.message_id.toString();
+    // ID сообщения (если переслано, берем ID оригинала, чтобы не дублировать)
+    const messageId = (channelPost.forward_origin?.message_id || channelPost.forward_from_message_id || channelPost.message_id).toString();
     const text = channelPost.text || channelPost.caption || '';
     
     if (!text) {
