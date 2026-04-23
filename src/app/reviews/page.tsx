@@ -44,12 +44,23 @@ export default function ReviewsPage() {
   // Функция для получения embed URL
   const getEmbedUrl = (videoUrl: string, platform: 'rutube' | 'youtube') => {
     if (platform === 'rutube') {
-      // Rutube URL format: https://rutube.ru/video/ID/
-      const videoId = videoUrl.split('/video/')[1]?.split('/')[0];
-      if (!videoId) {
+      try {
+        const urlObj = new URL(videoUrl);
+        const pathParts = urlObj.pathname.split('/').filter(Boolean);
+        const isPrivate = pathParts.includes('private');
+        let videoId = '';
+        if (isPrivate) {
+            videoId = pathParts[pathParts.indexOf('private') + 1];
+        } else {
+            videoId = pathParts[pathParts.indexOf('video') + 1];
+        }
+        if (!videoId) return '';
+        
+        const pParam = urlObj.searchParams.get('p');
+        return pParam ? `https://rutube.ru/play/embed/${videoId}?p=${pParam}` : `https://rutube.ru/play/embed/${videoId}`;
+      } catch (e) {
         return '';
       }
-      return `https://rutube.ru/play/embed/${videoId}`;
     } else {
       // YouTube URL format: https://youtube.com/watch?v=ID
       const videoId = videoUrl.split('v=')[1]?.split('&')[0];
@@ -59,6 +70,22 @@ export default function ReviewsPage() {
       return `https://www.youtube.com/embed/${videoId}`;
     }
   };
+
+  const initialVideoReviews = [
+    { id: 'v1', video_url: 'https://rutube.ru/video/private/01d363de9b78ee3873acd3b169507913/?r=wd', platform: 'rutube', title: 'Видеоотзыв 1' },
+    { id: 'v2', video_url: 'https://rutube.ru/video/private/60058aaf39dacd9d402efc72a39c9f3c/?r=wd', platform: 'rutube', title: 'Видеоотзыв 2' },
+    { id: 'v3', video_url: 'https://rutube.ru/video/private/98b965fe5b4908b1c9a23e5ba26e450e/?r=wd', platform: 'rutube', title: 'Видеоотзыв 3' },
+    { id: 'v4', video_url: 'https://rutube.ru/video/private/df158334784b753b01b0193e98071e7a/?r=wd', platform: 'rutube', title: 'Видеоотзыв 4' },
+    { id: 'v5', video_url: 'https://rutube.ru/video/private/15d84626286f14a01ffadf353a1451bf/?r=wd', platform: 'rutube', title: 'Видеоотзыв 5' },
+    { id: 'v6', video_url: 'https://rutube.ru/video/private/ce6db9ce6c68de8ac5fa9e128063a512/?r=wd', platform: 'rutube', title: 'Видеоотзыв 6' },
+    { id: 'v7', video_url: 'https://rutube.ru/video/private/5ee2ff2cde5edee20397680631907200/?r=wd', platform: 'rutube', title: 'Видеоотзыв 7' },
+    { id: 'v8', video_url: 'https://rutube.ru/video/private/7a53eb4baaa327915035adf012d0c1bf/?r=wd', platform: 'rutube', title: 'Видеоотзыв 8' },
+    { id: 'v9', video_url: 'https://rutube.ru/video/private/bd46c0a4e86343230e629cd10c15d038/?r=wd', platform: 'rutube', title: 'Видеоотзыв 9' },
+    { id: 'v10', video_url: 'https://rutube.ru/video/private/16a401806b5418a0d197d54651e6a004/?r=wd', platform: 'rutube', title: 'Видеоотзыв 10' },
+    { id: 'v11', video_url: 'https://rutube.ru/video/private/37f71ef8f1fa67cdd2dd2c6855da3586/?r=wd', platform: 'rutube', title: 'Видеоотзыв 11' },
+    { id: 'v12', video_url: 'https://rutube.ru/video/private/740848c0e1d4fe7ebacbc603bf9d28f9/?r=wd', platform: 'rutube', title: 'Видеоотзыв 12' },
+    { id: 'v13', video_url: 'https://rutube.ru/video/private/1916e2e688f4a1b30784f76d7eb670fc/?r=wd', platform: 'rutube', title: 'Видеоотзыв 13' },
+  ];
 
   const textReviews = [
     {
@@ -237,7 +264,7 @@ export default function ReviewsPage() {
             <div className="text-center py-20 glass-panel border-gray-200 rounded-2xl">
               <div className="text-xl text-gray-500">Загрузка видео-отзывов...</div>
             </div>
-          ) : videoReviews.length === 0 ? (
+          ) : [...videoReviews, ...initialVideoReviews].length === 0 ? (
             <div className="text-center py-20 glass-panel border-gray-200 border-dashed rounded-2xl">
               <div className="text-6xl mb-6">🎥</div>
               <p className="text-gray-900 text-2xl font-bold mb-4">Пока нет видео-отзывов</p>
@@ -247,13 +274,13 @@ export default function ReviewsPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {videoReviews.map((video) => (
+              {[...videoReviews, ...initialVideoReviews].map((video) => (
                 <div
                   key={video.id}
                   className="relative aspect-video bg-white rounded-2xl overflow-hidden glass-panel border-gray-200 group hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]"
                 >
                   <iframe
-                    src={getEmbedUrl(video.video_url, video.platform)}
+                    src={getEmbedUrl(video.video_url, video.platform as 'rutube' | 'youtube')}
                     title={video.title}
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
