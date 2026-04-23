@@ -145,9 +145,9 @@ export async function POST(request: Request) {
         } else {
            await sendDebugToAdmin(`Ошибка получения файла от Telegram:\n${JSON.stringify(fileData)}`);
         }
-      } catch (e: any) {
+      } catch (e: unknown) {
         console.error('Ошибка получения/скачивания фото:', e);
-        await sendDebugToAdmin(`Ошибка скачивания фото (catch):\n${e.message}`);
+        await sendDebugToAdmin(`Ошибка скачивания фото (catch):\n${e instanceof Error ? e.message : String(e)}`);
       }
     } else if (!botToken) {
        await sendDebugToAdmin(`Ошибка: TELEGRAM_PARSER_BOT_TOKEN не задан!`);
