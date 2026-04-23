@@ -114,7 +114,7 @@ export default function Home() {
             </h1>
             
             <p className="text-lg lg:text-xl text-gray-500 mb-8 max-w-xl leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
-              Мы доставляем автомобили под ключ быстрее и дешевле рынка. От подбора на аукционах до постановки на учёт в РФ — полное сопровождение и прозрачность.
+              Мы доставляем автомобили под ключ быстрее и дешевле рынка. Полное сопровождение и прозрачность.
             </p>
 
             <div className="grid grid-cols-2 gap-x-8 gap-y-4 mb-10 w-full animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
@@ -430,7 +430,7 @@ export default function Home() {
                     <CheckCircle2 className="w-6 h-6 text-primary" /> ЕВРОПЕЙСКОЕ КАЧЕСТВО
                   </h3>
                   <p className="text-gray-500 text-sm leading-relaxed">
-                    Используем лучшие предложения с автоаукционов Европы и 10-летний опыт, чтобы подобрать надёжный авто в рамках вашего бюджета.
+                    Используем лучшие предложения из Европы и 10-летний опыт, чтобы подобрать надёжный авто в рамках вашего бюджета.
                   </p>
                 </div>
               </div>
@@ -446,7 +446,7 @@ export default function Home() {
                   <ul className="space-y-3 text-gray-500 text-sm">
                     <li className="flex gap-3">
                       <span className="text-primary drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">•</span>
-                      Поиск, бронирование, выкуп и доставка авто.
+                      Поиск, бронирование и доставка авто.
                     </li>
                     <li className="flex gap-3">
                       <span className="text-primary drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">•</span>
@@ -562,7 +562,7 @@ export default function Home() {
                     </a>
                   </div>
                   <p className="text-gray-700 text-sm leading-relaxed text-center sm:text-left">
-                    Свежие поступления и онлайн-консультации <strong>с 8 до 22 МСК</strong> в наших мессенджерах!
+                    Свежие поступления и онлайн-консультации <strong>с 8:00 до 18:00</strong> в наших мессенджерах!
                   </p>
                 </div>
               </div>
