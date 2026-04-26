@@ -72,19 +72,16 @@ export default function ReviewsPage() {
   };
 
   const initialVideoReviews = [
-    { id: 'v1', video_url: 'https://rutube.ru/video/private/01d363de9b78ee3873acd3b169507913/?r=wd', platform: 'rutube', title: 'Видеоотзыв 1' },
-    { id: 'v2', video_url: 'https://rutube.ru/video/private/60058aaf39dacd9d402efc72a39c9f3c/?r=wd', platform: 'rutube', title: 'Видеоотзыв 2' },
-    { id: 'v3', video_url: 'https://rutube.ru/video/private/98b965fe5b4908b1c9a23e5ba26e450e/?r=wd', platform: 'rutube', title: 'Видеоотзыв 3' },
-    { id: 'v4', video_url: 'https://rutube.ru/video/private/df158334784b753b01b0193e98071e7a/?r=wd', platform: 'rutube', title: 'Видеоотзыв 4' },
-    { id: 'v5', video_url: 'https://rutube.ru/video/private/15d84626286f14a01ffadf353a1451bf/?r=wd', platform: 'rutube', title: 'Видеоотзыв 5' },
-    { id: 'v6', video_url: 'https://rutube.ru/video/private/ce6db9ce6c68de8ac5fa9e128063a512/?r=wd', platform: 'rutube', title: 'Видеоотзыв 6' },
-    { id: 'v7', video_url: 'https://rutube.ru/video/private/5ee2ff2cde5edee20397680631907200/?r=wd', platform: 'rutube', title: 'Видеоотзыв 7' },
-    { id: 'v8', video_url: 'https://rutube.ru/video/private/7a53eb4baaa327915035adf012d0c1bf/?r=wd', platform: 'rutube', title: 'Видеоотзыв 8' },
-    { id: 'v9', video_url: 'https://rutube.ru/video/private/bd46c0a4e86343230e629cd10c15d038/?r=wd', platform: 'rutube', title: 'Видеоотзыв 9' },
-    { id: 'v10', video_url: 'https://rutube.ru/video/private/16a401806b5418a0d197d54651e6a004/?r=wd', platform: 'rutube', title: 'Видеоотзыв 10' },
-    { id: 'v11', video_url: 'https://rutube.ru/video/private/37f71ef8f1fa67cdd2dd2c6855da3586/?r=wd', platform: 'rutube', title: 'Видеоотзыв 11' },
-    { id: 'v12', video_url: 'https://rutube.ru/video/private/740848c0e1d4fe7ebacbc603bf9d28f9/?r=wd', platform: 'rutube', title: 'Видеоотзыв 12' },
-    { id: 'v13', video_url: 'https://rutube.ru/video/private/1916e2e688f4a1b30784f76d7eb670fc/?r=wd', platform: 'rutube', title: 'Видеоотзыв 13' },
+    { id: 'v1', video_url: 'https://rutube.ru/video/private/45ffb04045fe52abb006abb79a4d8eab/?p=HudelEPjoGBTHcC9Xyd65g', platform: 'rutube', title: 'Видеоотзыв 1' },
+    { id: 'v2', video_url: 'https://rutube.ru/video/private/49cb128b777f38e706bb162574976d1e/?p=QZS-1ZCdKHk3W6p1Uwhu-Q', platform: 'rutube', title: 'Видеоотзыв 2' },
+    { id: 'v3', video_url: 'https://rutube.ru/video/private/f3e520652d9f0ce6fda5a0d08ef70b9e/?p=l8T1amHPgsFv4pZOV2IePQ', platform: 'rutube', title: 'Видеоотзыв 3' },
+    { id: 'v4', video_url: 'https://rutube.ru/video/private/80caa55290c6aa721a03ae5fc2a6a804/?p=-9p_HCV7mXDesh6bapMDSQ', platform: 'rutube', title: 'Видеоотзыв 4' },
+    { id: 'v5', video_url: 'https://rutube.ru/video/private/f76b9ad0c0ed93e20d7c029467c91f91/?p=94R5q5T9VzHZQhDO_frLVA', platform: 'rutube', title: 'Видеоотзыв 5' },
+    { id: 'v6', video_url: 'https://rutube.ru/video/private/ce7c9067c3a0d486a65e5abecc5c82d8/?p=BFSTHkjDKYjULHmogG80cw', platform: 'rutube', title: 'Видеоотзыв 6' },
+    { id: 'v7', video_url: 'https://rutube.ru/video/private/7161795f0a2f7f8a86a8e1b2b201c0e9/?p=APMFrLaSEHmPD0ztckH9rw', platform: 'rutube', title: 'Видеоотзыв 7' },
+    { id: 'v8', video_url: 'https://rutube.ru/video/private/c22ff8b57fc07a04388fb7d69c054414/?p=CMm6cOBkLvogivQyh6Dgxw', platform: 'rutube', title: 'Видеоотзыв 8' },
+    { id: 'v9', video_url: 'https://rutube.ru/video/private/b5015ad81c26776929ca309a57ab9937/?p=NyffAji0ylH2hhyly3e9Tg', platform: 'rutube', title: 'Видеоотзыв 9' },
+    { id: 'v10', video_url: 'https://rutube.ru/video/private/f9143f20ba505f256298ded858627fc3/?p=YStWIGpEbhCDOXFVpBTULg', platform: 'rutube', title: 'Видеоотзыв 10' },
   ];
 
   const textReviews = [
