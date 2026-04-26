@@ -100,7 +100,13 @@ export default function AboutPage() {
 
             {/* Right side - Video */}
             <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-100 border border-gray-200 flex items-center justify-center">
-              <div className="text-gray-500 text-base font-medium tracking-wide">Видео скоро появится</div>
+              <iframe
+                src="https://rutube.ru/play/embed/06f0a5d2b8fc87d3c4cd5a71c2a03bbe/?p=87We99NEv-5J9_Zw2qko2Q"
+                title="Видео о компании Sapfyr"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
         </div>
