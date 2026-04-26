@@ -2,6 +2,8 @@
 
 import { Calculator, CheckCircle2, Clock, CreditCard, FileText, Send } from 'lucide-react';
 import Link from 'next/link';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 
 export default function InstallmentPage() {
   const benefits = [
@@ -51,7 +53,9 @@ export default function InstallmentPage() {
   ];
 
   return (
-    <main className="flex-1 w-full flex flex-col items-center">
+    <div className="min-h-screen bg-background flex flex-col">
+      <Header />
+      <main className="flex-1 w-full flex flex-col items-center">
       {/* Hero Section */}
       <section className="w-full pt-32 pb-20 px-6 relative overflow-hidden bg-card">
         
@@ -173,6 +177,8 @@ export default function InstallmentPage() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 }

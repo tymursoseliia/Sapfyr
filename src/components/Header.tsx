@@ -55,15 +55,7 @@ export function Header() {
           >
             <Send className="w-4 h-4 text-gray-600 group-hover:text-[#0088cc] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
           </a>
-          <a
-            href="https://max.ru/u/f9LHodD0cOLd_wpVLKdoX-6cYVQPnzVsKXfd4Yyv1T741m3KQNI63EzYpvY"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 border border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary/50 group"
-            title="Наш MAX мессенджер"
-          >
-            <MessageSquare className="w-4 h-4 text-gray-600 group-hover:text-[#0088cc] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
-          </a>
+
           <a
             href="tel:+79383591091"
             className="hidden lg:flex items-center gap-2 bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary text-white px-5 py-2.5 rounded-full font-medium shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transform hover:-translate-y-0.5 whitespace-nowrap"
