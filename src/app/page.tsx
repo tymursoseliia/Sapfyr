@@ -581,7 +581,6 @@ export default function Home() {
 
       {/* Dynamic Sections */}
       <LatestCarsSection />
-      <HowToGetCarSection />
       <ClientReviewsSection />
       <FAQSection />
       <ConsultationFormSection />
