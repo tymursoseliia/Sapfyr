@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Send, MessageCircle, MessageSquare } from 'lucide-react';
+import { Send, MessageCircle, MessageSquare, Mail } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export function Header() {
@@ -57,11 +57,19 @@ export function Header() {
           </a>
 
           <a
-            href="tel:+79383591091"
+            href="mailto:info@support-sapffir.ru"
+            className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 border border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary/50 group"
+            title="Написать нам на почту"
+          >
+            <Mail className="w-4 h-4 text-gray-600 group-hover:text-primary group-hover:-translate-y-0.5 transition-all" />
+          </a>
+
+          <a
+            href="tel:+74951780520"
             className="hidden lg:flex items-center gap-2 bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary text-white px-5 py-2.5 rounded-full font-medium shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transform hover:-translate-y-0.5 whitespace-nowrap"
           >
             <MessageCircle className="w-4 h-4" />
-            <span className="text-sm tracking-wide">+7(938)359-10-91</span>
+            <span className="text-sm tracking-wide">+7 (495) 178-05-20</span>
           </a>
         </div>
       </div>

@@ -22,11 +22,11 @@ export default function TeamPage() {
     { name: 'Яна Зайцева', image: '/team/yana_zaytseva.jpg' },
     { name: 'Никита Морозов', image: '/team/nikita_morozov.jpg' },
     { name: 'Романов Руслан', image: '/team/romanov_ruslan.jpg' },
-    { name: 'Сечин Давид', image: '/team/sechin_david.jpg' },
+    { name: 'Андрей Мальков', image: '/team/andrey_malkov.jpg' },
     { name: 'Краснова Татьяна', image: '/team/krasnova_tatyana.jpg' },
     { name: 'Гаврилов Денис', image: '/team/gavrilov_denis.jpg' },
     { name: 'Коршунов Антон', image: '/team/korshunov_anton.jpg' },
-    { name: 'Медведев Александр', image: '/team/medvedev_aleksandr.jpg' },
+    { name: 'Горохов Давид', image: '/team/gorokhov_david.jpg' },
     { name: 'Забара Максим Дмитревич', image: '/team/zabara_maksim.jpg' },
     { name: 'Корев Александр Сергеевич', image: '/team/korev_aleksandr.jpg' },
     { name: 'Власова Анастасия Олеговна', image: '/team/vlasova_anastasiya.jpg' }

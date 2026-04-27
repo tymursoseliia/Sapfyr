@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Send, MessageCircle, Clock, MessageSquare } from 'lucide-react';
+import { Send, MessageCircle, Clock, MessageSquare, Mail } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -52,13 +52,24 @@ export function Footer() {
             <h4 className="text-gray-900 font-bold mb-6 tracking-wide text-sm uppercase">Контакты</h4>
             <ul className="space-y-4">
               <li>
-                <a href="tel:+79383591091" className="flex items-start gap-3 group">
+                <a href="tel:+74951780520" className="flex items-start gap-3 group">
                   <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center border border-transparent group-hover:border-primary/50 transition-colors shrink-0">
                     <MessageCircle className="w-3.5 h-3.5 text-primary" />
                   </div>
                   <div>
                     <div className="text-gray-500 text-xs mb-0.5">Телефон</div>
-                    <div className="text-gray-700 group-hover:text-gray-900 text-sm font-medium transition-colors">+7(938)359-10-91</div>
+                    <div className="text-gray-700 group-hover:text-gray-900 text-sm font-medium transition-colors">+7 (495) 178-05-20</div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@support-sapffir.ru" className="flex items-start gap-3 group">
+                  <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center border border-transparent group-hover:border-primary/50 transition-colors shrink-0">
+                    <Mail className="w-3.5 h-3.5 text-primary" />
+                  </div>
+                  <div>
+                    <div className="text-gray-500 text-xs mb-0.5">Email</div>
+                    <div className="text-gray-700 group-hover:text-gray-900 text-sm font-medium transition-colors">info@support-sapffir.ru</div>
                   </div>
                 </a>
               </li>
