@@ -88,7 +88,7 @@ export default function AboutPage() {
             {/* Left side - Text */}
             <div className="text-gray-900 space-y-4">
               <p className="text-base leading-relaxed">
-                <strong>«Sapfyr»</strong> — команда специалистов с опытом в подборе и импорте автомобилей более 11 лет.
+                <strong>«Sapfyr»</strong> — команда специалистов с опытом в подборе и импорте автомобилей более 9 лет.
               </p>
               <p className="text-base leading-relaxed">
                 Мы работаем напрямую с европейскими дилерами и проверенными продавцами, чтобы вы получали честный, прозрачный и выгодный вариант без переплат перекупам.

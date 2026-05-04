@@ -525,7 +525,7 @@ export default function Home() {
                   <div className="flex items-start gap-4 p-3 rounded-xl bg-gray-100 border border-gray-200 hover:bg-gray-200 transition-colors cursor-default">
                     <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0 border border-primary/50 text-primary">✓</div>
                     <p className="text-gray-700 text-sm mt-1.5">
-                      <strong className="text-gray-900 text-base">Более 11 лет опыта</strong> — 1000+ авто по всей РФ
+                      <strong className="text-gray-900 text-base">Более 9 лет опыта</strong> — 1000+ авто по всей РФ
                     </p>
                   </div>
                   <div className="flex items-start gap-4 p-3 rounded-xl bg-gray-100 border border-gray-200 hover:bg-gray-200 transition-colors cursor-default">
