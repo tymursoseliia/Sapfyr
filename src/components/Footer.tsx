@@ -58,7 +58,7 @@ export function Footer() {
                   </div>
                   <div>
                     <div className="text-gray-500 text-xs mb-0.5">Телефон</div>
-                    <div className="text-gray-700 group-hover:text-gray-900 text-sm font-medium transition-colors">+7 (401) 272-21-83</div>
+                    <div className="text-gray-700 group-hover:text-gray-900 text-sm font-medium transition-colors">+7 401 272 21 83</div>
                   </div>
                 </a>
               </li>
