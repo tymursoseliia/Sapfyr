@@ -9,7 +9,7 @@ export default function TeamPage() {
     { name: 'Ольга Макарова', image: '/team/olga_makarova.jpg' },
     { name: 'Ковалёва Екатерина', image: '/team/kovaleva_ekaterina.jpg' },
     { name: 'Марьенков Аркадий', image: '/team/maryenkov_arkadiy.jpg' },
-    { name: 'Андрей Карнаухов', image: '/team/andrey_oleynik.jpg' },
+    { name: 'Андрей Акимов', image: '/team/andrey_oleynik.jpg' },
     { name: 'Акимов Максим', image: '/team/akimov_maksim.jpg' },
     { name: 'Шечков Андрей', image: '/team/shechkov_andrey.jpg' },
     { name: 'Дмитрий Стебельков', image: '/team/dmitriy_stebelkov.jpg' },
