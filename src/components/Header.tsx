@@ -65,11 +65,11 @@ export function Header() {
           </a>
 
           <a
-            href="tel:+74012722183"
+            href="tel:+74012658906"
             className="hidden lg:flex items-center gap-2 bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary text-white px-5 py-2.5 rounded-full font-medium shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transform hover:-translate-y-0.5 whitespace-nowrap"
           >
             <MessageCircle className="w-4 h-4" />
-            <span className="text-sm tracking-wide">+7 401 272 21 83</span>
+            <span className="text-sm tracking-wide">+7 401 265 89 06</span>
           </a>
         </div>
       </div>
