@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Запуск сайта</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background: #f3f4f6; color: #111827; }
+        .container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto; }
+        .btn { display: inline-block; padding: 15px 30px; font-size: 18px; font-weight: bold; background: #000; color: white; text-decoration: none; border-radius: 8px; transition: 0.2s; }
+        .btn:hover { background: #333; }
+        .instruction { background: #fee2e2; border-left: 4px solid #ef4444; padding: 15px; margin: 20px 0; text-align: left; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Сайт написан на Next.js</h1>
+        <p>Поскольку сайт использует современные технологии (Next.js/React), он <b>не может</b> быть просто открыт через этот файл <code>index.html</code>.</p>
+        
+        <div class="instruction">
+            <strong>Для того чтобы увидеть изменения, нужно запустить локальный сервер:</strong>
+            <ol>
+                <li>Закройте этот файл.</li>
+                <li>Найдите и запустите кликом файл <b>Запуск_Сайта.bat</b>, который находится в этой же папке.</li>
+                <li>Подождите пару секунд, пока запустится сервер.</li>
+                <li>Затем нажмите на кнопку ниже или введите в браузере адрес <code>http://localhost:3000</code>.</li>
+            </ol>
+        </div>
+        
+        <a href="http://localhost:3000" class="btn" target="_blank">💻 Открыть сайт (localhost:3000)</a>
+    </div>
+</body>
+</html>
